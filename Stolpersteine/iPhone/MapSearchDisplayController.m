@@ -29,7 +29,7 @@
 #import "DiagnosticsService.h"
 #import "Localization.h"
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkService.h"
 
@@ -102,7 +102,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
-    Stolperstein *stolperstein = self.searchedStolpersteine[indexPath.row];
+    Stolperstein_OLD *stolperstein = self.searchedStolpersteine[indexPath.row];
     cell.textLabel.text = [Localization newNameFromStolperstein:stolperstein];
     cell.detailTextLabel.text = [Localization newShortAddressFromStolperstein:stolperstein];
     
@@ -123,7 +123,7 @@
     self.active = NO;
     
     // Force selected annotation to be on map
-    Stolperstein *stolperstein = self.searchedStolpersteine[indexPath.row];
+    Stolperstein_OLD *stolperstein = self.searchedStolpersteine[indexPath.row];
     __weak CCHMapClusterController *weakMapClusterController = self.mapClusterController;
     [weakMapClusterController addAnnotations:@[stolperstein] withCompletionHandler:^{
         // Zoom to selected stolperstein

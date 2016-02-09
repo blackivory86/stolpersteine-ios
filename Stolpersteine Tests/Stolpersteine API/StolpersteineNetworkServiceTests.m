@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkService.h"
 
@@ -52,7 +52,7 @@
     [self.networkService retrieveStolpersteineWithSearchData:nil range:NSMakeRange(0, 5) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         XCTAssertNil(error, @"Error request");
         XCTAssertTrue(stolpersteine.count == 5, @"Wrong number of stolpersteine");
-        for (Stolperstein *stolperstein in stolpersteine) {
+        for (Stolperstein_OLD *stolperstein in stolpersteine) {
             // Mandatory fields
             XCTAssertNotNil(stolperstein.ID, @"Wrong ID");
             XCTAssertTrue([stolperstein.ID isKindOfClass:NSString.class], @"Wrong type for ID");
@@ -97,7 +97,7 @@
     [self.networkService retrieveStolpersteineWithSearchData:searchData range:NSMakeRange(0, 5) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         XCTAssertNil(error, @"Error request");
         XCTAssertTrue(stolpersteine.count > 0, @"Wrong number of stolpersteine");
-        for (Stolperstein *stolperstein in stolpersteine) {
+        for (Stolperstein_OLD *stolperstein in stolpersteine) {
             BOOL found = [stolperstein.personFirstName hasPrefix:searchData.keywordsString];
             found |= [stolperstein.personLastName hasPrefix:searchData.keywordsString];
             XCTAssertTrue(found, @"Wrong search result");
@@ -118,7 +118,7 @@
     [self.networkService retrieveStolpersteineWithSearchData:searchData range:NSMakeRange(0, 5) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         XCTAssertNil(error, @"Error request");
         XCTAssertTrue(stolpersteine.count > 0, @"Wrong number of stolpersteine");
-        for (Stolperstein *stolperstein in stolpersteine) {
+        for (Stolperstein_OLD *stolperstein in stolpersteine) {
             BOOL found = [stolperstein.locationStreet hasPrefix:searchData.street];
             XCTAssertTrue(found, @"Wrong search result");
         }
@@ -141,7 +141,7 @@
     [self.networkService retrieveStolpersteineWithSearchData:searchData range:NSMakeRange(0, 5) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         XCTAssertNil(error, @"Error request");
         XCTAssertTrue(stolpersteine.count > 0, @"Wrong number of stolpersteine");
-        for (Stolperstein *stolperstein in stolpersteine) {
+        for (Stolperstein_OLD *stolperstein in stolpersteine) {
             BOOL found = [stolperstein.locationCity hasPrefix:searchData.city];
             XCTAssertTrue(found, @"Wrong search result");
         }

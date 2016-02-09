@@ -25,7 +25,7 @@
 
 #import "StolpersteinDescriptionViewController.h"
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "TUSafariActivity.h"
 #import "CCHMapsActivity.h"
 #import "AFNetworkActivityIndicatorManager.h"

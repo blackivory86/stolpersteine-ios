@@ -8,7 +8,7 @@
 
 #import "StolpersteinCardCell.h"
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "Localization.h"
 #import "CCHLinkTextView.h"
 #import "CCHLinkTextViewDelegate.h"
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet CCHLinkTextView *bodyTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightConstraint;
 
-@property (nonatomic, copy) Stolperstein *stolperstein;
+@property (nonatomic, copy) Stolperstein_OLD *stolperstein;
 
 @end
 
@@ -58,7 +58,7 @@
     self.bodyTextView.linkDelegate = linkDelegate;
 }
 
-- (void)updateWithStolperstein:(Stolperstein *)stolperstein linksDisabled:(BOOL)linksDisabled index:(NSUInteger)index
+- (void)updateWithStolperstein:(Stolperstein_OLD *)stolperstein linksDisabled:(BOOL)linksDisabled index:(NSUInteger)index
 {
     self.stolperstein = stolperstein;
     self.bodyTextView.attributedText = [StolpersteinCardCell newBodyAttributedStringFromStolperstein:stolperstein linksDisabled:linksDisabled];
@@ -76,9 +76,9 @@
     return canSelectRow;
 }
 
-+ (Stolperstein *)standardStolperstein
++ (Stolperstein_OLD *)standardStolperstein
 {
-    Stolperstein *stolperstein = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    Stolperstein_OLD *stolperstein = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.personFirstName = @"xxxxxxxxxx";
         builder.personLastName = @"xxxxxxxxxx";
         builder.locationStreet = @"xxxxxxxxxx xxx";
@@ -98,7 +98,7 @@
     return height;
 }
 
-+ (NSAttributedString *)newBodyAttributedStringFromStolperstein:(Stolperstein *)stolperstein linksDisabled:(BOOL)linksDisabled
++ (NSAttributedString *)newBodyAttributedStringFromStolperstein:(Stolperstein_OLD *)stolperstein linksDisabled:(BOOL)linksDisabled
 {
     NSString *name = [Localization newNameFromStolperstein:stolperstein];
     NSString *address = [Localization newLongAddressFromStolperstein:stolperstein];

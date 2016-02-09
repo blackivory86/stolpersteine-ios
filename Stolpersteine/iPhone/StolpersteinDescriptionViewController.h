@@ -25,10 +25,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class Stolperstein;
+@class Stolperstein_OLD;
 
 @interface StolpersteinDescriptionViewController : UIViewController<UIWebViewDelegate>
 
-@property (nonatomic, copy) Stolperstein *stolperstein;
+@property (nonatomic, copy) Stolperstein_OLD *stolperstein;
 
 @end

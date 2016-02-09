@@ -29,7 +29,7 @@
 #import "AFImageRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkServiceDelegate.h"
 #import "NSDictionary+StolpersteinParsing.h"
@@ -122,7 +122,7 @@ static NSString * const API_URL = @"http://api.stolpersteineapp.org/v1";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
             NSMutableArray *stolpersteine = [NSMutableArray arrayWithCapacity:stolpersteineAsJSON.count];
             for (NSDictionary *stolpersteinAsJSON in stolpersteineAsJSON) {
-                Stolperstein *stolperstein = [stolpersteinAsJSON newStolperstein];
+                Stolperstein_OLD *stolperstein = [stolpersteinAsJSON newStolperstein];
                 [stolpersteine addObject:stolperstein];
             }
 

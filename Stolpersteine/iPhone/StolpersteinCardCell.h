@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class Stolperstein;
+@class Stolperstein_OLD;
 @protocol CCHLinkTextViewDelegate;
 
 @interface StolpersteinCardCell : UITableViewCell
 
 @property (nonatomic, weak) id<CCHLinkTextViewDelegate> linkDelegate;
-@property (nonatomic, copy, readonly) Stolperstein *stolperstein;
+@property (nonatomic, copy, readonly) Stolperstein_OLD *stolperstein;
 
-- (void)updateWithStolperstein:(Stolperstein *)stolperstein linksDisabled:(BOOL)linksDisabled index:(NSUInteger)index;
+- (void)updateWithStolperstein:(Stolperstein_OLD *)stolperstein linksDisabled:(BOOL)linksDisabled index:(NSUInteger)index;
 - (BOOL)canSelectCurrentStolperstein;
 - (CGFloat)heightForCurrentStolpersteinWithTableViewWidth:(CGFloat)width;
 
-+ (Stolperstein *)standardStolperstein;
++ (Stolperstein_OLD *)standardStolperstein;
 
 @end

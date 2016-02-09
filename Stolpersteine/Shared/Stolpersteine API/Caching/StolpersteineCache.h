@@ -1,8 +1,8 @@
 //
-//  NSDictionary+StolpersteinParsing.h
+//  StolpersteineCache.h
 //  Stolpersteine
 //
-//  Copyright (C) 2013 Option-U Software
+//  Created by Jan Rose on 23.01.16.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +24,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Stolperstein_OLD.h"
 
-@class Stolperstein_OLD;
+@interface StolpersteineCache : NSObject
 
-@interface NSDictionary (StolpersteinParsing)
+- (NSArray<Stolperstein_OLD*>*)stolpersteineInRegion:(MKCoordinateRegion*)mkRegion;
 
-- (Stolperstein_OLD *)newStolperstein;
+- (void)addOrUpdateStolpersteine:(NSArray<Stolperstein_OLD*>*)stolpersteine;
 
 @end

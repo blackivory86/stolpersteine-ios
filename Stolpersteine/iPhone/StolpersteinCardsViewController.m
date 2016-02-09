@@ -25,7 +25,7 @@
 
 #import "StolpersteinCardsViewController.h"
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "StolpersteinDescriptionViewController.h"
 #import "StolpersteinCardCell.h"
 #import "StolpersteineSearchData.h"
@@ -132,7 +132,7 @@ static NSString * const CELL_IDENTIFIER = @"cell";
     }
     
     StolpersteinCardCell *cardCell = (StolpersteinCardCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    Stolperstein *stolperstein = cardCell.stolperstein;
+    Stolperstein_OLD *stolperstein = cardCell.stolperstein;
 
     if ([segue.identifier isEqualToString:@"stolpersteinCardsViewControllerToStolpersteinCardsViewController"]) {
         UINavigationController *navigationController = segue.destinationViewController;

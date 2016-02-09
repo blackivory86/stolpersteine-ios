@@ -25,18 +25,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class Stolperstein;
+@class Stolperstein_OLD;
 @class CCHMapClusterAnnotation;
 
 @interface Localization : NSObject
 
-+ (NSString *)newNameFromStolperstein:(Stolperstein *)stolperstein;
-+ (NSString *)newShortNameFromStolperstein:(Stolperstein *)stolperstein;
-+ (NSString *)newStreetNameFromStolperstein:(Stolperstein *)stolperstein;
-+ (NSString *)newShortAddressFromStolperstein:(Stolperstein *)stolperstein;
-+ (NSString *)newLongAddressFromStolperstein:(Stolperstein *)stolperstein;
-+ (NSString *)newPasteboardStringFromStolperstein:(Stolperstein *)stolperstein;
-+ (NSURL *)newPersonBiographyURLFromStolperstein:(Stolperstein *)stolperstein;
++ (NSString *)newNameFromStolperstein:(Stolperstein_OLD *)stolperstein;
++ (NSString *)newShortNameFromStolperstein:(Stolperstein_OLD *)stolperstein;
++ (NSString *)newStreetNameFromStolperstein:(Stolperstein_OLD *)stolperstein;
++ (NSString *)newShortAddressFromStolperstein:(Stolperstein_OLD *)stolperstein;
++ (NSString *)newLongAddressFromStolperstein:(Stolperstein_OLD *)stolperstein;
++ (NSString *)newPasteboardStringFromStolperstein:(Stolperstein_OLD *)stolperstein;
++ (NSURL *)newPersonBiographyURLFromStolperstein:(Stolperstein_OLD *)stolperstein;
 + (NSString *)newTitleFromMapClusterAnnotation:(CCHMapClusterAnnotation *)mapClusterAnnotation;
 + (NSString *)newSubtitleFromMapClusterAnnotation:(CCHMapClusterAnnotation *)mapClusterAnnotation;
 + (NSString *)newStolpersteineCountFromCount:(NSUInteger)count;

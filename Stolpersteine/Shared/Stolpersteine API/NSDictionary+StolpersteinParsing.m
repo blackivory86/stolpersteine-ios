@@ -25,13 +25,13 @@
 
 #import "NSDictionary+StolpersteinParsing.h"
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 
 @implementation NSDictionary (Parsing)
 
-- (Stolperstein *)newStolperstein
+- (Stolperstein_OLD *)newStolperstein
 {
-    Stolperstein *stolperstein = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    Stolperstein_OLD *stolperstein = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = [self valueForKeyPath:@"id"];
         builder.sourceName = [self valueForKeyPath:@"source.name"];
         builder.sourceURL = [NSURL URLWithString:[self valueForKeyPath:@"source.url"]];

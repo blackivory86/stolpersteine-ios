@@ -33,7 +33,7 @@ typedef NS_ENUM(NSInteger, StolpersteinType) {
     StolpersteinTypeStolperschwelle
 };
 
-@interface Stolperstein : NSObject<MKAnnotation, NSCoding, NSCopying>
+@interface Stolperstein_OLD : NSObject<MKAnnotation, NSCoding, NSCopying>
 
 @property (nonatomic, readonly, copy) NSString *ID;
 @property (nonatomic, readonly) StolpersteinType type;
@@ -62,13 +62,14 @@ typedef NS_ENUM(NSInteger, StolpersteinType) {
            locationZipCode:(NSString *)locationZipCode
               locationCity:(NSString *)locationCity
         locationCoordinate:(CLLocationCoordinate2D)locationCoordinate;
+
 + (instancetype)stolpersteinWithBuilderBlock:(void(^)(StolpersteinComponents *builder))builderBlock;
 
 - (instancetype)initWithCoder:(NSCoder *)decoder;
 - (void)encodeWithCoder:(NSCoder *)coder;
 
-- (BOOL)isEqualToStolperstein:(Stolperstein *)stolperstein;
-- (BOOL)isExactMatchToStolperstein:(Stolperstein *)stolperstein;
+- (BOOL)isEqualToStolperstein:(Stolperstein_OLD *)stolperstein;
+- (BOOL)isExactMatchToStolperstein:(Stolperstein_OLD *)stolperstein;
 
 @end
 
@@ -86,6 +87,6 @@ typedef NS_ENUM(NSInteger, StolpersteinType) {
 @property (nonatomic, copy) NSString *locationCity;
 @property (nonatomic) CLLocationCoordinate2D locationCoordinate;
 
-- (Stolperstein *)stolperstein;
+- (Stolperstein_OLD *)stolperstein;
 
 @end

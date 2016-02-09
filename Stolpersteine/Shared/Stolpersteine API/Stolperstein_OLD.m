@@ -23,9 +23,9 @@
 //  THE SOFTWARE.
 //
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 
-@implementation Stolperstein
+@implementation Stolperstein_OLD
 
 - (id)initWithID:(NSString *)ID type:(StolpersteinType)type sourceName:(NSString *)sourceName sourceURL:(NSURL *)sourceURL personFirstName:(NSString *)personFirstName personLastName:(NSString *)personLastName personBiographyURL:(NSURL *)personBiographyURL locationStreet:(NSString *)locationStreet locationZipCode:(NSString *)locationZipCode locationCity:(NSString *)locationCity locationCoordinate:(CLLocationCoordinate2D)locationCoordinate
 {
@@ -112,7 +112,7 @@
     return isEqual;
 }
 
-- (BOOL)isEqualToStolperstein:(Stolperstein *)stolperstein
+- (BOOL)isEqualToStolperstein:(Stolperstein_OLD *)stolperstein
 {
     BOOL isEqual;
     
@@ -127,7 +127,7 @@
     return isEqual;
 }
 
-- (BOOL)isExactMatchToStolperstein:(Stolperstein *)stolperstein
+- (BOOL)isExactMatchToStolperstein:(Stolperstein_OLD *)stolperstein
 {
     BOOL isExactMatch;
     
@@ -165,9 +165,9 @@
 
 @implementation StolpersteinComponents
 
-- (Stolperstein *)stolperstein
+- (Stolperstein_OLD *)stolperstein
 {
-    return [[Stolperstein alloc] initWithID:self.ID
+    return [[Stolperstein_OLD alloc] initWithID:self.ID
                                        type:self.type
                                  sourceName:self.sourceName
                                   sourceURL:self.sourceURL

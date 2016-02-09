@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 
 #import <XCTest/XCTest.h>
 
@@ -35,13 +35,13 @@
 
 - (void)testEqual
 {
-    Stolperstein *stolperstein0, *stolperstein1;
+    Stolperstein_OLD *stolperstein0, *stolperstein1;
     
     // IDs match
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"123";
     }];
-    stolperstein1 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein1 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"123";
     }];
     XCTAssertTrue([stolperstein0 isEqual:stolperstein1]);
@@ -49,17 +49,17 @@
     XCTAssertTrue(stolperstein0.hash == stolperstein1.hash);
 
     // Object equals itself
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"123";
     }];
     XCTAssertTrue([stolperstein0 isEqual:stolperstein0]);
     XCTAssertTrue(stolperstein0.hash == stolperstein0.hash);
 
     // IDs don't match
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"123";
     }];
-    stolperstein1 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein1 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"456";
     }];
     XCTAssertFalse([stolperstein0 isEqual:stolperstein1]);
@@ -67,33 +67,33 @@
     XCTAssertFalse(stolperstein0.hash == stolperstein1.hash); // not required, but preferable
 
     // Wrong class
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"123";
     }];
-    stolperstein1 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein1 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"456";
     }];
     XCTAssertFalse([stolperstein0 isEqual:stolperstein1.ID]);
     XCTAssertFalse([stolperstein1 isEqual:stolperstein0.ID]);
 
     // nil IDs
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
     }];
-    stolperstein1 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein1 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"456";
     }];
     XCTAssertFalse([stolperstein0 isEqual:stolperstein1]);
 
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
         builder.ID = @"123";
     }];
-    stolperstein1 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein1 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
     }];
     XCTAssertFalse([stolperstein0 isEqual:stolperstein1]);
 
-    stolperstein0 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein0 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
     }];
-    stolperstein1 = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+    stolperstein1 = [Stolperstein_OLD stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
     }];
     XCTAssertTrue([stolperstein0 isEqual:stolperstein1]);
 

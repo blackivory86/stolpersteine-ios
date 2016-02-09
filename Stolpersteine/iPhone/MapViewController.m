@@ -32,8 +32,7 @@
 #import "MapClusterAnnotationView.h"
 #import "Localization.h"
 
-#import "StolpersteineSynchronizationController.h"
-#import "StolpersteinSynchronizationControllerDelegate.h"
+#import "StolpersteineDataProvider.h"
 #import "StolpersteinCardsViewController.h"
 #import "StolpersteineNetworkService.h"
 
@@ -44,7 +43,7 @@
 static const double ZOOM_DISTANCE_USER = 1200;
 static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
 
-@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, CCHMapClusterControllerDelegate, StolpersteineSynchronizationControllerDelegate>
+@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, CCHMapClusterControllerDelegate, StolpersteineDataProviderDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
@@ -53,6 +52,7 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
 
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) BOOL displayRegionIcon;
+@property (nonatomic, strong) StolpersteineDataProvider* dataProvider;
 @property (nonatomic) StolpersteineSynchronizationController *stolpersteinSyncController;
 @property (nonatomic) CCHMapClusterController *mapClusterController;
 
@@ -94,8 +94,10 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
     }
     
     // Start loading data
-    self.stolpersteinSyncController = [[StolpersteineSynchronizationController alloc] initWithNetworkService:AppDelegate.networkService];
-    self.stolpersteinSyncController.delegate = self;
+    StolpersteineSynchronizationController* syncController = [[StolpersteineSynchronizationController alloc] initWithNetworkService:AppDelegate.networkService];
+    self.dataProvider = [[StolpersteineDataProvider alloc] initWithSyncController:syncController cache:nil];
+    self.dataProvider.delegate = self;
+
 
     // Initialize map region
     self.mapView.region = [AppDelegate.configurationService coordinateRegionConfigurationForKey:ConfigurationServiceKeyVisibleRegion];
@@ -106,7 +108,7 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
     [super viewWillAppear:animated];
 
     if (self.mapClusterController.annotations.count < 4600) {
-        [self.stolpersteinSyncController synchronize];
+        [self.dataProvider loadAll];
     }
 }
 
@@ -193,7 +195,7 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
 
 #pragma mark - Stolperstein synchronization controller
 
-- (void)stolpersteinSynchronizationController:(StolpersteineSynchronizationController *)stolpersteinSynchronizationController didAddStolpersteine:(NSArray *)stolpersteine
+- (void)dataProvider:(StolpersteineDataProvider*)provider didAddStolpersteine:(NSArray<Stolperstein*>*)stolpersteine
 {
     [self.mapClusterController addAnnotations:stolpersteine withCompletionHandler:NULL];
 }

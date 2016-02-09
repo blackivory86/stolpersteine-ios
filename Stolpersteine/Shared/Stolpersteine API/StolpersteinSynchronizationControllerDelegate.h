@@ -24,13 +24,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Stolperstein_OLD.h"
 
 @class StolpersteineSynchronizationController;
 
 @protocol StolpersteineSynchronizationControllerDelegate <NSObject>
 
 @optional
-- (void)stolpersteinSynchronizationController:(StolpersteineSynchronizationController *)stolpersteinSynchronizationController didAddStolpersteine:(NSArray *)stolpersteine;
-- (void)stolpersteinSynchronizationController:(StolpersteineSynchronizationController *)stolpersteinSynchronizationController didRemoveStolpersteine:(NSArray *)stolpersteine;
+- (void)stolpersteinSynchronizationController:(StolpersteineSynchronizationController *)stolpersteinSynchronizationController didAddStolpersteine:(NSArray<Stolperstein_OLD*>*)stolpersteine;
+- (void)stolpersteinSynchronizationController:(StolpersteineSynchronizationController *)stolpersteinSynchronizationController didRemoveStolpersteine:(NSArray<Stolperstein_OLD*>*)stolpersteine;
 
 @end

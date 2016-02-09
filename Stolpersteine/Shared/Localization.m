@@ -25,12 +25,12 @@
 
 #import "Localization.h"
 
-#import "Stolperstein.h"
+#import "Stolperstein_OLD.h"
 #import "CCHMapClusterAnnotation.h"
 
 @implementation Localization
 
-+ (NSString *)newNameFromStolperstein:(Stolperstein *)stolperstein
++ (NSString *)newNameFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSMutableString *name = [NSMutableString stringWithCapacity:stolperstein.personFirstName.length + stolperstein.personLastName.length + 1];
     if (stolperstein.personFirstName.length > 0) {
@@ -54,7 +54,7 @@
     return name;
 }
 
-+ (NSString *)newShortNameFromStolperstein:(Stolperstein *)stolperstein
++ (NSString *)newShortNameFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSMutableString *shortName = [NSMutableString stringWithCapacity:stolperstein.personLastName.length + 3];
     BOOL hasFirstLetter = (stolperstein.personFirstName.length > 0);
@@ -73,7 +73,7 @@
     return shortName;
 }
 
-+ (NSString *)newStreetNameFromStolperstein:(Stolperstein *)stolperstein
++ (NSString *)newStreetNameFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSRange range = [stolperstein.locationStreet rangeOfCharacterFromSet:NSCharacterSet.decimalDigitCharacterSet];
     NSString *locationStreetName = stolperstein.locationStreet;
@@ -84,7 +84,7 @@
     return locationStreetName;
 }
 
-+ (NSString *)newShortAddressFromStolperstein:(Stolperstein *)stolperstein
++ (NSString *)newShortAddressFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSMutableString *address = [NSMutableString stringWithString:stolperstein.locationStreet];
     if (stolperstein.locationZipCode || stolperstein.locationCity) {
@@ -101,7 +101,7 @@
     return address;
 }
 
-+ (NSString *)newLongAddressFromStolperstein:(Stolperstein *)stolperstein
++ (NSString *)newLongAddressFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSMutableString *address = [NSMutableString stringWithCapacity:20];
     
@@ -130,7 +130,7 @@
     return address;
 }
 
-+ (NSString *)newPasteboardStringFromStolperstein:(Stolperstein *)stolperstein
++ (NSString *)newPasteboardStringFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSString *name = [Localization newNameFromStolperstein:stolperstein];
     NSString *address = [Localization newShortAddressFromStolperstein:stolperstein];
@@ -144,7 +144,7 @@
     return string;
 }
 
-+ (NSURL *)newPersonBiographyURLFromStolperstein:(Stolperstein *)stolperstein
++ (NSURL *)newPersonBiographyURLFromStolperstein:(Stolperstein_OLD *)stolperstein
 {
     NSString *personBiographyURLString = stolperstein.personBiographyURL.absoluteString;
     
@@ -169,12 +169,12 @@
         NSUInteger numStolpersteine = MIN(mapClusterAnnotation.annotations.count, 5);
         NSArray *stolpersteine = [mapClusterAnnotation.annotations.allObjects subarrayWithRange:NSMakeRange(0, numStolpersteine)];
         NSMutableArray *names = [NSMutableArray arrayWithCapacity:numStolpersteine];
-        for (Stolperstein *stolperstein in stolpersteine) {
+        for (Stolperstein_OLD *stolperstein in stolpersteine) {
             [names addObject:[Localization newNameFromStolperstein:stolperstein]];
         }
         title = [names componentsJoinedByString:@", "];
     } else {
-        Stolperstein *stolperstein = [mapClusterAnnotation.annotations anyObject];
+        Stolperstein_OLD *stolperstein = [mapClusterAnnotation.annotations anyObject];
         title = [Localization newNameFromStolperstein:stolperstein];
     }
     
@@ -185,7 +185,7 @@
 {
     NSString *subtitle;
     if (mapClusterAnnotation.isUniqueLocation) {
-        Stolperstein *stolperstein = [mapClusterAnnotation.annotations anyObject];
+        Stolperstein_OLD *stolperstein = [mapClusterAnnotation.annotations anyObject];
         subtitle = [Localization newShortAddressFromStolperstein:stolperstein];
     } else {
         subtitle = [Localization newStolpersteineCountFromCount:mapClusterAnnotation.annotations.count];
