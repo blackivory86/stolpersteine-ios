@@ -5,6 +5,9 @@ PODS:
   - CCHMapsActivity (0.0.2)
   - GoogleAnalytics (3.14.0)
   - OCMock (3.2)
+  - Realm (0.98.0):
+    - Realm/Headers (= 0.98.0)
+  - Realm/Headers (0.98.0)
   - TUSafariActivity (1.0.0)
 
 DEPENDENCIES:
@@ -14,6 +17,8 @@ DEPENDENCIES:
   - CCHMapsActivity
   - GoogleAnalytics
   - OCMock
+  - Realm
+  - Realm/Headers
   - TUSafariActivity (from `https://github.com/davbeck/TUSafariActivity.git`, commit
     `c67c2c4272d89765a927dd034708772f3a4a39ee`)
 
@@ -34,6 +39,7 @@ SPEC CHECKSUMS:
   CCHMapsActivity: 756066a90033bb33a2acab63d65785f703151b67
   GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
+  Realm: 28efc598b8b1b378d27a222d9fc037a29ae68642
   TUSafariActivity: dd346df54a8f1cbb4fd05d504c76d47225fac99e
 
 COCOAPODS: 0.39.0
