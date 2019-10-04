@@ -352,8 +352,7 @@
 		627E43BC169B0F050065C1F1 /* Stolpersteine */ = {
 			isa = PBXGroup;
 			children = (
-				48633B8616C03F690057A317 /* iPhone */,
-				627E43E3169B270B0065C1F1 /* Shared */,
+				707EB41A234713BE00F07E8E /* Objective-C */,
 				626BBF0E16AEB15600DEC6EA /* Resources */,
 				6207C28C188B101A000CA2D4 /* Supporting Files */,
 			);
@@ -435,6 +434,15 @@
 				6288BE25188AE02C00F9B986 /* Stolpersteine Bochum-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		707EB41A234713BE00F07E8E /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				627E43E3169B270B0065C1F1 /* Shared */,
+				48633B8616C03F690057A317 /* iPhone */,
+			);
+			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 		7F7659489F166A5441691A6D /* Pods */ = {
@@ -539,6 +547,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				de,
 				es,
