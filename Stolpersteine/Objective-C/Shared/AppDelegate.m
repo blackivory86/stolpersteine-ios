@@ -26,7 +26,6 @@
 #import "AppDelegate.h"
 
 #import "StolpersteineNetworkService.h"
-#import "StolpersteineSearchData.h"
 #import "DiagnosticsService.h"
 #import "ConfigurationService.h"
 
@@ -80,7 +79,7 @@
     NSString *clientPassword = [self.configurationService stringConfigurationForKey:ConfigurationServiceKeyAPIPassword];
     self.networkService = [[StolpersteineNetworkService alloc] initWithClientUser:clientUser clientPassword:clientPassword];
     NSString *city = [self.configurationService stringConfigurationForKey:ConfigurationServiceKeyFilterCity];
-    self.networkService.defaultSearchData = [[StolpersteineSearchData alloc] initWithKeywordsString:nil street:nil city:city];
+    self.networkService.defaultSearchData = [[StolpersteineSearchData alloc] initWithKeywords:nil street:nil city:city];
     self.networkService.delegate = self;
 #ifdef DEBUG
     // This allows invalid certificates so that proxies can decrypt the network traffic

@@ -29,7 +29,6 @@
 #import "AFImageRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkServiceDelegate.h"
 
 static NSString * const API_URL = @"http://api.stolpersteineapp.org/v1";
@@ -94,7 +93,7 @@ static NSString * const API_URL = @"http://api.stolpersteineapp.org/v1";
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     
     // Optional parameters
-    NSString *keyword = searchData.keywordsString ? searchData.keywordsString : self.defaultSearchData.keywordsString;
+    NSString *keyword = searchData.keywords ? searchData.keywords : self.defaultSearchData.keywords;
     if (keyword) {
         [parameters setObject:keyword forKey:@"q"];
     }

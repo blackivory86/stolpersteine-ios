@@ -27,7 +27,6 @@
 
 #import "AppDelegate.h"
 #import "DiagnosticsService.h"
-#import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkService.h"
 
 #import "CCHMapClusterController.h"
@@ -61,7 +60,7 @@
 {
     [self.searchStolpersteineOperation cancel];
     
-    StolpersteineSearchData *searchData = [[StolpersteineSearchData alloc] initWithKeywordsString:searchString street:nil city:nil];
+    StolpersteineSearchData *searchData = [[StolpersteineSearchData alloc] initWithKeywords:searchString street:nil city:nil];
     self.searchStolpersteineOperation = [self.networkService retrieveStolpersteineWithSearchData:searchData range:NSMakeRange(0, REQUEST_SIZE) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         self.searchedStolpersteine = stolpersteine;
         [self.searchResultsTableView reloadData];

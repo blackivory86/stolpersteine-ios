@@ -27,7 +27,6 @@
 
 #import "StolpersteinDescriptionViewController.h"
 #import "StolpersteinCardCell.h"
-#import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkService.h"
 
 #import "CCHLinkTextView.h"
@@ -139,7 +138,7 @@ static NSString * const CELL_IDENTIFIER = @"cell";
         cardsViewController.navigationItem.rightBarButtonItem = barButtonItem;
         
         NSString *street = stolperstein.streetName;
-        StolpersteineSearchData *searchData = [[StolpersteineSearchData alloc] initWithKeywordsString:nil street:street city:nil];
+        StolpersteineSearchData *searchData = [[StolpersteineSearchData alloc] initWithKeywords:nil street:street city:nil];
         cardsViewController.searchData = searchData;
     } else if ([segue.identifier isEqualToString:@"stolpersteinCardsViewControllerToStolpersteinDescriptionViewController"]) {
         StolpersteinDescriptionViewController *webViewController = (StolpersteinDescriptionViewController *)segue.destinationViewController;
