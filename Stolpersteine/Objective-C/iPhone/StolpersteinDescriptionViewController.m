@@ -25,13 +25,11 @@
 
 #import "StolpersteinDescriptionViewController.h"
 
-#import "Stolperstein.h"
 #import "TUSafariActivity.h"
 #import "CCHMapsActivity.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "AppDelegate.h"
 #import "DiagnosticsService.h"
-#import "Localization.h"
 
 #import <AddressBook/AddressBook.h>
 
@@ -63,7 +61,7 @@
     // Load web site
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
-    NSURL *url = [Localization newPersonBiographyURLFromStolperstein:self.stolperstein];
+    NSURL *url = self.stolperstein.localizedBiographyURL;
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
 }
@@ -147,13 +145,14 @@
     if (self.stolperstein.locationCity) {
         [addressDictionary setObject:self.stolperstein.locationCity forKey:(NSString *)kABPersonAddressCityKey];
     }
-    if (self.stolperstein.locationZipCode) {
-        [addressDictionary setObject:self.stolperstein.locationZipCode forKey:(NSString *)kABPersonAddressZIPKey];
+    if (self.stolperstein.locationZIP) {
+        [addressDictionary setObject:self.stolperstein.locationZIP forKey:(NSString *)kABPersonAddressZIPKey];
     }
-    CLLocationCoordinate2D coordinate = self.stolperstein.locationCoordinate;
+    
+    CLLocationCoordinate2D coordinate = self.stolperstein.coordinate;
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:addressDictionary];
     MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-    mapItem.name = [Localization newNameFromStolperstein:self.stolperstein];
+    mapItem.name = self.stolperstein.name;
 
     // Configure activity items
     NSArray *itemsToShare = @[self.webViewTitle, self.webView.request.URL, mapItem];

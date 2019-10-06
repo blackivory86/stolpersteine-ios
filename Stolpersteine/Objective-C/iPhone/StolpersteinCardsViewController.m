@@ -25,7 +25,6 @@
 
 #import "StolpersteinCardsViewController.h"
 
-#import "Stolperstein.h"
 #import "StolpersteinDescriptionViewController.h"
 #import "StolpersteinCardCell.h"
 #import "StolpersteineSearchData.h"
@@ -36,7 +35,6 @@
 
 #import "AppDelegate.h"
 #import "DiagnosticsService.h"
-#import "Localization.h"
 
 static NSString * const CELL_IDENTIFIER = @"cell";
 
@@ -140,13 +138,13 @@ static NSString * const CELL_IDENTIFIER = @"cell";
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:cardsViewController action:@selector(dismissViewController)];
         cardsViewController.navigationItem.rightBarButtonItem = barButtonItem;
         
-        NSString *street = street = [Localization newStreetNameFromStolperstein:stolperstein];
+        NSString *street = stolperstein.streetName;
         StolpersteineSearchData *searchData = [[StolpersteineSearchData alloc] initWithKeywordsString:nil street:street city:nil];
         cardsViewController.searchData = searchData;
     } else if ([segue.identifier isEqualToString:@"stolpersteinCardsViewControllerToStolpersteinDescriptionViewController"]) {
         StolpersteinDescriptionViewController *webViewController = (StolpersteinDescriptionViewController *)segue.destinationViewController;
         webViewController.stolperstein = stolperstein;
-        webViewController.title = [Localization newNameFromStolperstein:stolperstein];
+        webViewController.title = stolperstein.name;
     }
 }
 

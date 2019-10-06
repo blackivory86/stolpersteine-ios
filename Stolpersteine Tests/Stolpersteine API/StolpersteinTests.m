@@ -23,8 +23,6 @@
 //  THE SOFTWARE.
 //
 
-#import "Stolperstein.h"
-
 #import <XCTest/XCTest.h>
 
 @interface StolpersteinTests : XCTestCase

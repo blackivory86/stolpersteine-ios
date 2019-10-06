@@ -30,7 +30,6 @@
 #import "ConfigurationService.h"
 #import "MapSearchDisplayController.h"
 #import "MapClusterAnnotationView.h"
-#import "Localization.h"
 
 #import "StolpersteineSynchronizationController.h"
 #import "StolpersteinSynchronizationControllerDelegate.h"
@@ -40,6 +39,7 @@
 #import "CCHMapClusterController.h"
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHMapClusterAnnotation.h"
+#import "Stolpersteine_Berlin-Swift.h"
 
 static const double ZOOM_DISTANCE_USER = 1200;
 static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
@@ -187,7 +187,7 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
         CCHMapClusterAnnotation *mapClusterAnnotation = (CCHMapClusterAnnotation *)selectedAnnotation;
         StolpersteinCardsViewController *listViewController = (StolpersteinCardsViewController *)segue.destinationViewController;
         listViewController.stolpersteine = mapClusterAnnotation.annotations.allObjects;
-        listViewController.title = [Localization newStolpersteineCountFromCount:mapClusterAnnotation.annotations.count];
+        listViewController.title = mapClusterAnnotation.stolpersteineCount;
     }
 }
 
@@ -260,12 +260,12 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
 
 - (NSString *)mapClusterController:(CCHMapClusterController *)mapClusterController titleForMapClusterAnnotation:(CCHMapClusterAnnotation *)mapClusterAnnotation
 {
-    return [Localization newTitleFromMapClusterAnnotation:mapClusterAnnotation];
+    return mapClusterAnnotation.stolpersteineTitle;
 }
 
 - (NSString *)mapClusterController:(CCHMapClusterController *)mapClusterController subtitleForMapClusterAnnotation:(CCHMapClusterAnnotation *)mapClusterAnnotation
 {
-    return [Localization newSubtitleFromMapClusterAnnotation:mapClusterAnnotation];
+    return mapClusterAnnotation.stolpersteineSubtitle;
 }
 
 - (void)mapClusterController:(CCHMapClusterController *)mapClusterController willReuseMapClusterAnnotation:(CCHMapClusterAnnotation *)mapClusterAnnotation

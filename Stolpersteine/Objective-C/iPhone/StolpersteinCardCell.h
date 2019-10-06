@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class Stolperstein;
 @protocol CCHLinkTextViewDelegate;
+@class Stolperstein;
 
 @interface StolpersteinCardCell : UITableViewCell
 

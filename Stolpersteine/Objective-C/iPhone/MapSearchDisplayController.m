@@ -27,9 +27,6 @@
 
 #import "AppDelegate.h"
 #import "DiagnosticsService.h"
-#import "Localization.h"
-
-#import "Stolperstein.h"
 #import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkService.h"
 
@@ -37,6 +34,8 @@
 
 #define REQUEST_DELAY 0.3
 #define REQUEST_SIZE 100
+
+@class Stolperstein;
 
 @interface MapSearchDisplayController()
 
@@ -103,8 +102,8 @@
     }
     
     Stolperstein *stolperstein = self.searchedStolpersteine[indexPath.row];
-    cell.textLabel.text = [Localization newNameFromStolperstein:stolperstein];
-    cell.detailTextLabel.text = [Localization newShortAddressFromStolperstein:stolperstein];
+    cell.textLabel.text = stolperstein.name;
+    cell.detailTextLabel.text = stolperstein.shortAddress;
     
     return cell;
 }

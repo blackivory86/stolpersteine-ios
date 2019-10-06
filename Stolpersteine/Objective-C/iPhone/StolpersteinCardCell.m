@@ -8,11 +8,10 @@
 
 #import "StolpersteinCardCell.h"
 
-#import "Stolperstein.h"
-#import "Localization.h"
 #import "CCHLinkTextView.h"
 #import "CCHLinkTextViewDelegate.h"
 #import "CCHLinkGestureRecognizer.h"
+#import "Stolpersteine_Berlin-Swift.h"
 
 @interface StolpersteinCardCell () <UIActionSheetDelegate>
 
@@ -72,21 +71,23 @@
 
 - (BOOL)canSelectCurrentStolperstein
 {
-    BOOL canSelectRow = (self.stolperstein.personBiographyURL != nil);
+    BOOL canSelectRow = (self.stolperstein.localizedBiographyURL != nil);
     return canSelectRow;
 }
 
 + (Stolperstein *)standardStolperstein
 {
-    Stolperstein *stolperstein = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
-        builder.personFirstName = @"xxxxxxxxxx";
-        builder.personLastName = @"xxxxxxxxxx";
-        builder.locationStreet = @"xxxxxxxxxx xxx";
-        builder.locationZipCode = @"xxxx";
-        builder.locationCity = @"xxxxxxxxxx";
-    }];
-
-    return stolperstein;
+    return nil;
+    
+//    Stolperstein *stolperstein = [Stolperstein stolpersteinWithBuilderBlock:^(StolpersteinComponents *builder) {
+//        builder.personFirstName = @"xxxxxxxxxx";
+//        builder.personLastName = @"xxxxxxxxxx";
+//        builder.locationStreet = @"xxxxxxxxxx xxx";
+//        builder.locationZipCode = @"xxxx";
+//        builder.locationCity = @"xxxxxxxxxx";
+//    }];
+//
+//    return stolperstein;
 }
 
 - (CGFloat)heightForCurrentStolpersteinWithTableViewWidth:(CGFloat)width
@@ -100,8 +101,8 @@
 
 + (NSAttributedString *)newBodyAttributedStringFromStolperstein:(Stolperstein *)stolperstein linksDisabled:(BOOL)linksDisabled
 {
-    NSString *name = [Localization newNameFromStolperstein:stolperstein];
-    NSString *address = [Localization newLongAddressFromStolperstein:stolperstein];
+    NSString *name = stolperstein.name;
+    NSString *address = stolperstein.longAddress;
     NSString *body = [NSString stringWithFormat:@"%@\n%@", name, address];
     NSMutableAttributedString *bodyAttributedString = [[NSMutableAttributedString alloc] initWithString:body];
     
@@ -116,7 +117,7 @@
     [bodyAttributedString addAttribute:NSFontAttributeName value:addressFont range:addressRange];
     
     if (!linksDisabled) {
-        NSString *streetName = [Localization newStreetNameFromStolperstein:stolperstein];
+        NSString *streetName = stolperstein.streetName;
         NSRange streetNameRange = NSMakeRange(name.length + 1, streetName.length);
         [bodyAttributedString addAttribute:CCHLinkAttributeName value:@"" range:streetNameRange];
     }
@@ -140,11 +141,11 @@
 - (void)copy:(id)sender
 {
     UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
-    NSURL *URL = [Localization newPersonBiographyURLFromStolperstein:self.stolperstein];
-    if (URL) {
-        pasteboard.URL = [Localization newPersonBiographyURLFromStolperstein:self.stolperstein];
+    NSURL *url = self.stolperstein.localizedBiographyURL;
+    if (url) {
+        pasteboard.URL = url;
     }
-    pasteboard.string = [Localization newPasteboardStringFromStolperstein:self.stolperstein];
+    pasteboard.string = self.stolperstein.pasteboardString;
     
     [self setSelected:NO animated:YES];
 }

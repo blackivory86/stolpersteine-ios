@@ -24,7 +24,6 @@
 //
 
 #import "Localization.h"
-#import "Stolperstein.h"
 
 #import "OCMock.h"
 

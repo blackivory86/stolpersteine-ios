@@ -23,7 +23,6 @@
 //  THE SOFTWARE.
 //
 
-#import "Stolperstein.h"
 #import "StolpersteineSearchData.h"
 #import "StolpersteineNetworkService.h"
 
