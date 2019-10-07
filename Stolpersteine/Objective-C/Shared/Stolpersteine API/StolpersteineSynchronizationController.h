@@ -24,8 +24,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Stolpersteine_Berlin-Swift.h"
 
-@class StolpersteineNetworkService;
 @protocol StolpersteineSynchronizationControllerDelegate;
 
 @interface StolpersteineSynchronizationController : NSObject

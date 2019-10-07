@@ -26,7 +26,6 @@
 #import "MapSearchDisplayController.h"
 
 #import "DiagnosticsService.h"
-#import "StolpersteineNetworkService.h"
 
 #import "CCHMapClusterController.h"
 
@@ -38,7 +37,7 @@
 @interface MapSearchDisplayController()
 
 @property (nonatomic, copy) NSArray *searchedStolpersteine;
-@property (nonatomic, weak) NSOperation *searchStolpersteineOperation;
+@property (nonatomic, weak) NSURLSessionDataTask *searchStolpersteineOperation;
 @property (nonatomic, weak) UIBarButtonItem *originalBarButtonItem;
 
 @end
@@ -60,7 +59,9 @@
     [self.searchStolpersteineOperation cancel];
     
     StolpersteineSearchData *searchData = [[StolpersteineSearchData alloc] initWithKeywords:searchString street:nil city:nil];
-    self.searchStolpersteineOperation = [self.networkService retrieveStolpersteineWithSearchData:searchData range:NSMakeRange(0, REQUEST_SIZE) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
+    self.searchStolpersteineOperation = [self.networkService retrieveStolpersteineWithSearch:searchData
+                                                                                     inRange:NSMakeRange(0, REQUEST_SIZE)
+                                                                           completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         self.searchedStolpersteine = stolpersteine;
         [self.searchResultsTableView reloadData];
         [self.searchResultsTableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];

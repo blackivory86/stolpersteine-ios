@@ -25,7 +25,6 @@
 
 #import "StolpersteineSynchronizationController.h"
 
-#import "StolpersteineNetworkService.h"
 #import "StolpersteinSynchronizationControllerDelegate.h"
 
 #define NETWORK_BATCH_SIZE 500
@@ -33,7 +32,7 @@
 @interface StolpersteineSynchronizationController()
 
 @property (nonatomic) StolpersteineNetworkService *networkService;
-@property (nonatomic, weak) NSOperation *retrieveStolpersteineOperation;
+@property (nonatomic, weak) NSURLSessionDataTask *retrieveStolpersteineOperation;
 @property (nonatomic, getter = isSynchronizing) BOOL synchronizing;
 @property (nonatomic) NSMutableSet *stolpersteine;
 
@@ -65,7 +64,8 @@
 - (void)retrieveStolpersteineWithRange:(NSRange)range
 {
     [self.retrieveStolpersteineOperation cancel];
-    self.retrieveStolpersteineOperation = [self.networkService retrieveStolpersteineWithSearchData:nil range:range completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
+    
+    self.retrieveStolpersteineOperation = [self.networkService retrieveStolpersteineWithSearch:nil inRange:range completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
         if (error == nil) {
             [self didAddStolpersteine:stolpersteine];
             

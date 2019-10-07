@@ -27,7 +27,6 @@
 
 #import "StolpersteinDescriptionViewController.h"
 #import "StolpersteinCardCell.h"
-#import "StolpersteineNetworkService.h"
 
 #import "CCHLinkTextView.h"
 #import "CCHLinkTextViewDelegate.h"
@@ -38,7 +37,7 @@ static NSString * const CELL_IDENTIFIER = @"cell";
 
 @interface StolpersteinCardsViewController () <CCHLinkTextViewDelegate>
 
-@property (nonatomic, weak) NSOperation *searchStolpersteineOperation;
+@property (nonatomic, weak) NSURLSessionDataTask *searchStolpersteineOperation;
 @property (nonatomic) StolpersteinCardCell *measuringCell;
 
 @end
@@ -64,7 +63,9 @@ static NSString * const CELL_IDENTIFIER = @"cell";
     
     if (!self.stolpersteine && self.searchData) {
         [self.searchStolpersteineOperation cancel];
-        self.searchStolpersteineOperation = [AppDelegate.networkService retrieveStolpersteineWithSearchData:self.searchData range:NSMakeRange(0, 0) completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
+        self.searchStolpersteineOperation = [AppDelegate.networkService retrieveStolpersteineWithSearch:self.searchData
+                                                                                                inRange:NSMakeRange(0, 0)
+                                                                                      completionHandler:^BOOL(NSArray *stolpersteine, NSError *error) {
             self.stolpersteine = stolpersteine;
             self.title = self.searchData.street;
             [self.tableView reloadData];

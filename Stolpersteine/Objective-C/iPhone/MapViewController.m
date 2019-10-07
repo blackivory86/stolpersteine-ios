@@ -33,7 +33,6 @@
 #import "StolpersteineSynchronizationController.h"
 #import "StolpersteinSynchronizationControllerDelegate.h"
 #import "StolpersteinCardsViewController.h"
-#import "StolpersteineNetworkService.h"
 
 #import "CCHMapClusterController.h"
 #import "CCHMapClusterControllerDelegate.h"

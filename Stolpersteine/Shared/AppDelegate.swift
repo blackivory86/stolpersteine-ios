@@ -21,11 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc static var networkService: StolpersteineNetworkService? = {
         guard let configurationService = AppDelegate.configurationService else { return nil }
         
-        let networkService = StolpersteineNetworkService(clientUser: configurationService.stringConfiguration(for: ConfigurationServiceKeyAPIUser),
-                                                     clientPassword: configurationService.stringConfiguration(for: ConfigurationServiceKeyAPIPassword))
-        networkService?.defaultSearchData = StolpersteineSearchData(keywords: nil,
-                                                                    street: nil,
-                                                                    city: configurationService.stringConfiguration(for: ConfigurationServiceKeyFilterCity))
+        let defaultSearch = StolpersteineSearchData(keywords: nil,
+        street: nil,
+        city: configurationService.stringConfiguration(for: ConfigurationServiceKeyFilterCity))
+        let networkService = StolpersteineNetworkService(withClientUser: configurationService.stringConfiguration(for: ConfigurationServiceKeyAPIUser),
+                                                         password: configurationService.stringConfiguration(for: ConfigurationServiceKeyAPIPassword),
+                                                         defaultSearchData: defaultSearch)
         return networkService
     }()
     
@@ -39,7 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Stolpersteine \(ConfigurationService.appShortVersion() ?? "") (\(ConfigurationService.appVersion() ?? ""))")
         
         let networkService = AppDelegate.networkService
-        networkService?.delegate = self
+        networkService?.globalErrorHandler = { error in
+            let alert = UIAlertView(title: NSLocalizedString("AppDelegate.errorTitle", comment: ""),
+                                    message: NSLocalizedString("AppDelegate.errorMessage", comment: ""),
+                                    delegate: nil,
+                                    cancelButtonTitle: NSLocalizedString("AppDelegate.errorButtonTitle", comment: ""))
+            alert.show()
+        }
+        
         #if DEBUG
         networkService?.allowsInvalidSSLCertificate = true
         #endif
@@ -47,16 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-}
-
-extension AppDelegate: StolpersteineNetworkServiceDelegate {
-    func stolpersteinNetworkService(_ stolpersteinNetworkService: StolpersteineNetworkService!, handleError error: Error!) {
-        let alert = UIAlertView(title: NSLocalizedString("AppDelegate.errorTitle", comment: ""),
-                                message: NSLocalizedString("AppDelegate.errorMessage", comment: ""),
-                                delegate: nil,
-                                cancelButtonTitle: NSLocalizedString("AppDelegate.errorButtonTitle", comment: ""))
-        alert.show()
-    }
 }
 
 extension AppDelegate {
