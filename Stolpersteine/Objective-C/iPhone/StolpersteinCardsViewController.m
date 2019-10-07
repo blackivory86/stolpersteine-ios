@@ -32,7 +32,6 @@
 #import "CCHLinkTextView.h"
 #import "CCHLinkTextViewDelegate.h"
 
-#import "AppDelegate.h"
 #import "DiagnosticsService.h"
 
 static NSString * const CELL_IDENTIFIER = @"cell";

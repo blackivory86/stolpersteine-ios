@@ -3,3 +3,7 @@
 //
 
 #import "CCHMapClusterAnnotation.h"
+#import "ConfigurationService.h"
+#import "StolpersteineNetworkService.h"
+#import "StolpersteineNetworkServiceDelegate.h"
+#import "DiagnosticsService.h"

@@ -25,7 +25,6 @@
 
 #import "MapSearchDisplayController.h"
 
-#import "AppDelegate.h"
 #import "DiagnosticsService.h"
 #import "StolpersteineNetworkService.h"
 

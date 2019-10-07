@@ -35,7 +35,6 @@
 #import "InfoViewController.h"
 #import "StolpersteinCardsViewController.h"
 #import "StolpersteinDescriptionViewController.h"
-#import "AppDelegate.h"
 
 #import <CoreLocation/CoreLocation.h>
 

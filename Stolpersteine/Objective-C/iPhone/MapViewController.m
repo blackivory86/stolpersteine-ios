@@ -25,7 +25,6 @@
 
 #import "MapViewController.h"
 
-#import "AppDelegate.h"
 #import "DiagnosticsService.h"
 #import "ConfigurationService.h"
 #import "MapSearchDisplayController.h"

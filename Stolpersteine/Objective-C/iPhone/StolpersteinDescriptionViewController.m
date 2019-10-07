@@ -28,7 +28,6 @@
 #import "TUSafariActivity.h"
 #import "CCHMapsActivity.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "AppDelegate.h"
 #import "DiagnosticsService.h"
 
 #import <AddressBook/AddressBook.h>
