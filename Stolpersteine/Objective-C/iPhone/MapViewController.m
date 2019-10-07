@@ -29,8 +29,6 @@
 #import "MapSearchDisplayController.h"
 #import "MapClusterAnnotationView.h"
 
-#import "StolpersteineSynchronizationController.h"
-#import "StolpersteinSynchronizationControllerDelegate.h"
 #import "StolpersteinCardsViewController.h"
 
 #import "CCHMapClusterController.h"
@@ -91,7 +89,7 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
     }
     
     // Start loading data
-    self.stolpersteinSyncController = [[StolpersteineSynchronizationController alloc] initWithNetworkService:AppDelegate.networkService];
+    self.stolpersteinSyncController = [[StolpersteineSynchronizationController alloc]  initWithNetworkService:AppDelegate.networkService];
     self.stolpersteinSyncController.delegate = self;
 
     // Initialize map region

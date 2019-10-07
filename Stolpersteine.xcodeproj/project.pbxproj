@@ -28,9 +28,7 @@
 		6207C25D188AE0DB000CA2D4 /* StolpersteinCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A6CEA617EB9AC300E0751B /* StolpersteinCardCell.m */; };
 		6207C25E188AE0DB000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877717417861A4400789F32 /* StolpersteinDescriptionViewController.m */; };
 		6207C261188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF38716E9405C007250A0 /* DiagnosticsService.m */; };
-		6207C263188AE0EF000CA2D4 /* StolpersteineSynchronizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B682817739342000803C2 /* StolpersteineSynchronizationController.m */; };
 		6207C269188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF38716E9405C007250A0 /* DiagnosticsService.m */; };
-		6207C26B188AE0EF000CA2D4 /* StolpersteineSynchronizationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 489B682817739342000803C2 /* StolpersteineSynchronizationController.m */; };
 		6207C271188AE251000CA2D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622DEDA217F432EB009C9B44 /* Images.xcassets */; };
 		6207C272188AE251000CA2D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 622DEDA217F432EB009C9B44 /* Images.xcassets */; };
 		6207C273188AE25A000CA2D4 /* gunter-demnig.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4879D226181C47890022C131 /* gunter-demnig.jpg */; };
@@ -76,6 +74,8 @@
 		707EB42E234A727A00F07E8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42D234A727A00F07E8E /* AppDelegate.swift */; };
 		707EB430234B34CE00F07E8E /* ConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42F234B34CE00F07E8E /* ConfigurationService.swift */; };
 		707EB431234B34CE00F07E8E /* ConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42F234B34CE00F07E8E /* ConfigurationService.swift */; };
+		707EB433234B592A00F07E8E /* StolpersteineSynchronizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB432234B592A00F07E8E /* StolpersteineSynchronizationController.swift */; };
+		707EB434234B592A00F07E8E /* StolpersteineSynchronizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB432234B592A00F07E8E /* StolpersteineSynchronizationController.swift */; };
 		A09F7D357DD14407B31448A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 195B6404122D49D18523AE52 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -113,9 +113,6 @@
 		4879D224181C3E400022C131 /* gunter-demnig@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gunter-demnig@2x.jpg"; sourceTree = "<group>"; };
 		4879D226181C47890022C131 /* gunter-demnig.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gunter-demnig.jpg"; sourceTree = "<group>"; };
 		4879D23D18205AD30022C131 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		489B682717739342000803C2 /* StolpersteineSynchronizationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StolpersteineSynchronizationController.h; sourceTree = "<group>"; };
-		489B682817739342000803C2 /* StolpersteineSynchronizationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StolpersteineSynchronizationController.m; sourceTree = "<group>"; };
-		489B682C17739444000803C2 /* StolpersteinSynchronizationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StolpersteinSynchronizationControllerDelegate.h; sourceTree = "<group>"; };
 		48A6CEA517EB9AC300E0751B /* StolpersteinCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StolpersteinCardCell.h; sourceTree = "<group>"; };
 		48A6CEA617EB9AC300E0751B /* StolpersteinCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StolpersteinCardCell.m; sourceTree = "<group>"; };
 		48BAF38616E9405C007250A0 /* DiagnosticsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiagnosticsService.h; sourceTree = "<group>"; };
@@ -169,6 +166,7 @@
 		707EB42A2349FAA600F07E8E /* StolpersteineNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StolpersteineNetworkService.swift; sourceTree = "<group>"; };
 		707EB42D234A727A00F07E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		707EB42F234B34CE00F07E8E /* ConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationService.swift; sourceTree = "<group>"; };
+		707EB432234B592A00F07E8E /* StolpersteineSynchronizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StolpersteineSynchronizationController.swift; sourceTree = "<group>"; };
 		7DAC9596362F3A3DBFFC161E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9070E7C5042F617F41C79A6C /* Pods-Stolpersteine Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stolpersteine Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stolpersteine Tests/Pods-Stolpersteine Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AE0DCC63AF534AF3826ADCFF /* libPods-Stolpersteine Unit Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Stolpersteine Unit Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,9 +363,6 @@
 		627E442F169C41EC0065C1F1 /* Stolpersteine API */ = {
 			isa = PBXGroup;
 			children = (
-				489B682717739342000803C2 /* StolpersteineSynchronizationController.h */,
-				489B682817739342000803C2 /* StolpersteineSynchronizationController.m */,
-				489B682C17739444000803C2 /* StolpersteinSynchronizationControllerDelegate.h */,
 			);
 			path = "Stolpersteine API";
 			sourceTree = "<group>";
@@ -443,6 +438,7 @@
 				707EB4212347188E00F07E8E /* Stolperstein.swift */,
 				707EB4272349DA2F00F07E8E /* StolpersteineSearchData.swift */,
 				707EB42A2349FAA600F07E8E /* StolpersteineNetworkService.swift */,
+				707EB432234B592A00F07E8E /* StolpersteineSynchronizationController.swift */,
 			);
 			path = "Stolpersteine API";
 			sourceTree = "<group>";
@@ -771,6 +767,7 @@
 			files = (
 				707EB42B2349FAA600F07E8E /* StolpersteineNetworkService.swift in Sources */,
 				707EB4222347188E00F07E8E /* Stolperstein.swift in Sources */,
+				707EB433234B592A00F07E8E /* StolpersteineSynchronizationController.swift in Sources */,
 				626EFDCE1896F22F00206C4B /* MapClusterAnnotationView.m in Sources */,
 				6207C257188AE0DA000CA2D4 /* StolpersteinCardsViewController.m in Sources */,
 				6207C259188AE0DA000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */,
@@ -779,7 +776,6 @@
 				6207C258188AE0DA000CA2D4 /* StolpersteinCardCell.m in Sources */,
 				6207C261188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */,
 				6207C255188AE0DA000CA2D4 /* MapViewController.m in Sources */,
-				6207C263188AE0EF000CA2D4 /* StolpersteineSynchronizationController.m in Sources */,
 				707EB42E234A727A00F07E8E /* AppDelegate.swift in Sources */,
 				707EB4252348C29800F07E8E /* CCHMapClusterAnnotation+Localization.swift in Sources */,
 				707EB4282349DA2F00F07E8E /* StolpersteineSearchData.swift in Sources */,
@@ -800,13 +796,13 @@
 				6207C25D188AE0DB000CA2D4 /* StolpersteinCardCell.m in Sources */,
 				6207C269188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */,
 				6207C25A188AE0DB000CA2D4 /* MapViewController.m in Sources */,
-				6207C26B188AE0EF000CA2D4 /* StolpersteineSynchronizationController.m in Sources */,
 				628D77781897B41400F605CC /* MapSearchDisplayController.m in Sources */,
 				707EB42C2349FAA600F07E8E /* StolpersteineNetworkService.swift in Sources */,
 				6207C25B188AE0DB000CA2D4 /* InfoViewController.m in Sources */,
 				707EB4292349DA2F00F07E8E /* StolpersteineSearchData.swift in Sources */,
 				707EB4262348C29800F07E8E /* CCHMapClusterAnnotation+Localization.swift in Sources */,
 				707EB431234B34CE00F07E8E /* ConfigurationService.swift in Sources */,
+				707EB434234B592A00F07E8E /* StolpersteineSynchronizationController.swift in Sources */,
 				707EB4232347188E00F07E8E /* Stolperstein.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
