@@ -3,7 +3,6 @@
 //
 
 #import "CCHMapClusterAnnotation.h"
-#import "ConfigurationService.h"
 #import "DiagnosticsService.h"
 #import "AFJSONRequestOperation.h"
 #import "AFImageRequestOperation.h"

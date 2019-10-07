@@ -26,7 +26,6 @@
 #import "MapViewController.h"
 
 #import "DiagnosticsService.h"
-#import "ConfigurationService.h"
 #import "MapSearchDisplayController.h"
 #import "MapClusterAnnotationView.h"
 
@@ -96,7 +95,8 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
     self.stolpersteinSyncController.delegate = self;
 
     // Initialize map region
-    self.mapView.region = [AppDelegate.configurationService coordinateRegionConfigurationForKey:ConfigurationServiceKeyVisibleRegion];
+    #warning Reenable set region
+//    self.mapView.region = [AppDelegate.configurationService coordinateRegion];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -170,8 +170,9 @@ static const double ZOOM_DISTANCE_STOLPERSTEIN = ZOOM_DISTANCE_USER * 0.25;
         }
         diagnosticsLabel = @"userLocation";
     } else {
-        MKCoordinateRegion region = [AppDelegate.configurationService coordinateRegionConfigurationForKey:ConfigurationServiceKeyVisibleRegion];
-        [self.mapView setRegion:region animated:YES];
+#warning Reenable set region
+//        MKCoordinateRegion region = [AppDelegate.configurationService coordinateRegionConfigurationForKey:ConfigurationServiceKeyVisibleRegion];
+//        [self.mapView setRegion:region animated:YES];
         diagnosticsLabel = @"region";
     }
     [self updateLocationBarButtonItem];

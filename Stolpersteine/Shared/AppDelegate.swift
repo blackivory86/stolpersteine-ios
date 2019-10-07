@@ -14,8 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     @objc static var configurationService: ConfigurationService? = {
-        let configFile = Bundle.main.path(forResource: "Stolpersteine-Config", ofType: "plist")
-        return ConfigurationService(configurationsFile: configFile)
+        guard let configFile = Bundle.main.path(forResource: "Stolpersteine-Config", ofType: "plist")
+            else { return nil }
+        return ConfigurationService(withConfigurationFile: configFile)
     }()
     
     @objc static var networkService: StolpersteineNetworkService? = {
@@ -23,21 +24,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaultSearch = StolpersteineSearchData(keywords: nil,
         street: nil,
-        city: configurationService.stringConfiguration(for: ConfigurationServiceKeyFilterCity))
-        let networkService = StolpersteineNetworkService(withClientUser: configurationService.stringConfiguration(for: ConfigurationServiceKeyAPIUser),
-                                                         password: configurationService.stringConfiguration(for: ConfigurationServiceKeyAPIPassword),
+        city: configurationService.string(forKey: .FilterCity))
+        let networkService = StolpersteineNetworkService(withClientUser: configurationService.string(forKey: .APIUser),
+                                                         password: configurationService.string(forKey: .APIPassword),
                                                          defaultSearchData: defaultSearch)
         return networkService
     }()
     
     @objc static var diagnosticsService: DiagnosticsService? = {
-        return DiagnosticsService(googleAnalyticsID: AppDelegate.configurationService?.stringConfiguration(for: ConfigurationServiceKeyGoogleAnalyticsID))
+        return DiagnosticsService(googleAnalyticsID: AppDelegate.configurationService?.string(forKey: .GoogleAnalyticsID))
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         guard !AppDelegate.isUnitTesting else { return true }
         
-        print("Stolpersteine \(ConfigurationService.appShortVersion() ?? "") (\(ConfigurationService.appVersion() ?? ""))")
+        print("Stolpersteine \(ConfigurationService.appShortVersion ?? "") (\(ConfigurationService.appVersion ?? ""))")
         
         let networkService = AppDelegate.networkService
         networkService?.globalErrorHandler = { error in

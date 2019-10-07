@@ -9,7 +9,6 @@
 #import "InfoViewController.h"
 
 #import "DiagnosticsService.h"
-#import "ConfigurationService.h"
 
 #import <MessageUI/MessageUI.h>
 

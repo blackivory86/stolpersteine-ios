@@ -61,8 +61,6 @@
 		6288BE2A188AE02C00F9B986 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6288BE29188AE02C00F9B986 /* Images.xcassets */; };
 		628D77771897B41400F605CC /* MapSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628D77761897B41400F605CC /* MapSearchDisplayController.m */; };
 		628D77781897B41400F605CC /* MapSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 628D77761897B41400F605CC /* MapSearchDisplayController.m */; };
-		62AB9D6F188BC4450003AB4C /* ConfigurationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB9D6E188BC4450003AB4C /* ConfigurationService.m */; };
-		62AB9D70188BC4450003AB4C /* ConfigurationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB9D6E188BC4450003AB4C /* ConfigurationService.m */; };
 		62AB9D72188BC8BA0003AB4C /* ConfigurationServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB9D71188BC8BA0003AB4C /* ConfigurationServiceTests.m */; };
 		62AB9D74188BCA890003AB4C /* ConfigurationServiceTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62AB9D73188BCA890003AB4C /* ConfigurationServiceTests.plist */; };
 		62AB9D76188BDED50003AB4C /* ConfigurationServiceTestsEmpty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62AB9D75188BDED50003AB4C /* ConfigurationServiceTestsEmpty.plist */; };
@@ -76,6 +74,8 @@
 		707EB42B2349FAA600F07E8E /* StolpersteineNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42A2349FAA600F07E8E /* StolpersteineNetworkService.swift */; };
 		707EB42C2349FAA600F07E8E /* StolpersteineNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42A2349FAA600F07E8E /* StolpersteineNetworkService.swift */; };
 		707EB42E234A727A00F07E8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42D234A727A00F07E8E /* AppDelegate.swift */; };
+		707EB430234B34CE00F07E8E /* ConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42F234B34CE00F07E8E /* ConfigurationService.swift */; };
+		707EB431234B34CE00F07E8E /* ConfigurationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42F234B34CE00F07E8E /* ConfigurationService.swift */; };
 		A09F7D357DD14407B31448A3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 195B6404122D49D18523AE52 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -154,8 +154,6 @@
 		6288BE29188AE02C00F9B986 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		628D77751897B41400F605CC /* MapSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSearchDisplayController.h; sourceTree = "<group>"; };
 		628D77761897B41400F605CC /* MapSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSearchDisplayController.m; sourceTree = "<group>"; };
-		62AB9D6D188BC4450003AB4C /* ConfigurationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationService.h; sourceTree = "<group>"; };
-		62AB9D6E188BC4450003AB4C /* ConfigurationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationService.m; sourceTree = "<group>"; };
 		62AB9D71188BC8BA0003AB4C /* ConfigurationServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationServiceTests.m; sourceTree = "<group>"; };
 		62AB9D73188BCA890003AB4C /* ConfigurationServiceTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationServiceTests.plist; sourceTree = "<group>"; };
 		62AB9D75188BDED50003AB4C /* ConfigurationServiceTestsEmpty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationServiceTestsEmpty.plist; sourceTree = "<group>"; };
@@ -170,6 +168,7 @@
 		707EB4272349DA2F00F07E8E /* StolpersteineSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StolpersteineSearchData.swift; sourceTree = "<group>"; };
 		707EB42A2349FAA600F07E8E /* StolpersteineNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StolpersteineNetworkService.swift; sourceTree = "<group>"; };
 		707EB42D234A727A00F07E8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		707EB42F234B34CE00F07E8E /* ConfigurationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationService.swift; sourceTree = "<group>"; };
 		7DAC9596362F3A3DBFFC161E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9070E7C5042F617F41C79A6C /* Pods-Stolpersteine Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stolpersteine Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stolpersteine Tests/Pods-Stolpersteine Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AE0DCC63AF534AF3826ADCFF /* libPods-Stolpersteine Unit Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Stolpersteine Unit Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,8 +357,6 @@
 			children = (
 				48BAF38616E9405C007250A0 /* DiagnosticsService.h */,
 				48BAF38716E9405C007250A0 /* DiagnosticsService.m */,
-				62AB9D6D188BC4450003AB4C /* ConfigurationService.h */,
-				62AB9D6E188BC4450003AB4C /* ConfigurationService.m */,
 				627E442F169C41EC0065C1F1 /* Stolpersteine API */,
 			);
 			path = Shared;
@@ -429,12 +426,13 @@
 		707EB41B2347146200F07E8E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				707EB42D234A727A00F07E8E /* AppDelegate.swift */,
 				707EB41C2347148200F07E8E /* Stolpersteine Berlin-Bridging-Header.h */,
 				707EB4202347188E00F07E8E /* Stolpersteine Bochum-Bridging-Header.h */,
 				707EB41F234714BC00F07E8E /* Stolpersteine API */,
 				707EB41D2347148200F07E8E /* Stolperstein+Localization.swift */,
 				707EB4242348C29800F07E8E /* CCHMapClusterAnnotation+Localization.swift */,
-				707EB42D234A727A00F07E8E /* AppDelegate.swift */,
+				707EB42F234B34CE00F07E8E /* ConfigurationService.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -771,7 +769,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62AB9D6F188BC4450003AB4C /* ConfigurationService.m in Sources */,
 				707EB42B2349FAA600F07E8E /* StolpersteineNetworkService.swift in Sources */,
 				707EB4222347188E00F07E8E /* Stolperstein.swift in Sources */,
 				626EFDCE1896F22F00206C4B /* MapClusterAnnotationView.m in Sources */,
@@ -787,6 +784,7 @@
 				707EB4252348C29800F07E8E /* CCHMapClusterAnnotation+Localization.swift in Sources */,
 				707EB4282349DA2F00F07E8E /* StolpersteineSearchData.swift in Sources */,
 				628D77771897B41400F605CC /* MapSearchDisplayController.m in Sources */,
+				707EB430234B34CE00F07E8E /* ConfigurationService.swift in Sources */,
 				6207C256188AE0DA000CA2D4 /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -795,7 +793,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62AB9D70188BC4450003AB4C /* ConfigurationService.m in Sources */,
 				626EFDCF1896F22F00206C4B /* MapClusterAnnotationView.m in Sources */,
 				6207C25C188AE0DB000CA2D4 /* StolpersteinCardsViewController.m in Sources */,
 				6207C25E188AE0DB000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */,
@@ -809,6 +806,7 @@
 				6207C25B188AE0DB000CA2D4 /* InfoViewController.m in Sources */,
 				707EB4292349DA2F00F07E8E /* StolpersteineSearchData.swift in Sources */,
 				707EB4262348C29800F07E8E /* CCHMapClusterAnnotation+Localization.swift in Sources */,
+				707EB431234B34CE00F07E8E /* ConfigurationService.swift in Sources */,
 				707EB4232347188E00F07E8E /* Stolperstein.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
