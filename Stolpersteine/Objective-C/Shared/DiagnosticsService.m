@@ -31,7 +31,6 @@
 #import "GAIDictionaryBuilder.h"
 
 #import "MapSearchDisplayController.h"
-#import "InfoViewController.h"
 #import "StolpersteinCardsViewController.h"
 #import "StolpersteinDescriptionViewController.h"
 

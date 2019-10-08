@@ -216,7 +216,7 @@
         <!--Info View Controller-->
         <scene sceneID="pBI-oZ-rQa">
             <objects>
-                <tableViewController id="Ryi-d9-nxg" customClass="InfoViewController" sceneMemberID="viewController">
+                <tableViewController id="Ryi-d9-nxg" customClass="InfoViewController" customModule="Stolpersteine_Berlin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ndi-di-8BL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -604,7 +604,7 @@
                     <navigationItem key="navigationItem" id="0L8-Pz-NMQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ym2-9m-hCW">
                             <connections>
-                                <action selector="close:" destination="Ryi-d9-nxg" id="BKS-pR-wrf"/>
+                                <action selector="closeWithSender:" destination="Ryi-d9-nxg" id="Twa-oP-Sse"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -628,7 +628,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdW-hi-dKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1631.8840579710147" y="470.75892857142856"/>
+            <point key="canvasLocation" x="1622" y="662"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="K2J-Iu-FmW">
