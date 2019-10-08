@@ -8,3 +8,7 @@
 #import "AFImageRequestOperation.h"
 #import "AFHTTPClient.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "CCHMapClusterControllerDelegate.h"
+#import "CCHMapClusterController.h"
+#import "StolpersteinCardsViewController.h"
+#import "MapSearchDisplayController.h"

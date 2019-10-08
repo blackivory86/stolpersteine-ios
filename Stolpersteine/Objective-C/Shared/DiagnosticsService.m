@@ -30,7 +30,6 @@
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
 
-#import "MapViewController.h"
 #import "MapSearchDisplayController.h"
 #import "InfoViewController.h"
 #import "StolpersteinCardsViewController.h"
