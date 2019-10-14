@@ -26,7 +26,6 @@
 #import "StolpersteinCardsViewController.h"
 
 #import "StolpersteinDescriptionViewController.h"
-#import "StolpersteinCardCell.h"
 
 #import "CCHLinkTextView.h"
 #import "CCHLinkTextViewDelegate.h"

@@ -3,6 +3,9 @@
 //
 
 #import "CCHMapClusterAnnotation.h"
+#import "CCHLinkTextViewDelegate.h"
+#import "CCHLinkTextView.h"
+#import "CCHLinkGestureRecognizer.h"
 #import "DiagnosticsService.h"
 #import "AFJSONRequestOperation.h"
 #import "AFImageRequestOperation.h"
