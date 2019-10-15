@@ -64,8 +64,7 @@ class StolpersteinCardCell: UITableViewCell {
         NotificationCenter.default.addObserver(self, selector: #selector(willHideEditMenu(notification:)), name: UIMenuController.willHideMenuNotification, object: nil)
     }
 
-    public func update(withStolperstein stolperstein: Stolperstein, linksDisabled: Bool, index: UInt) {
-        
+    public func update(withStolperstein stolperstein: Stolperstein, linksDisabled: Bool, index: Int) {
         self.stolperstein = stolperstein
         
         bodyTextView?.attributedText = stolperstein.bodyAttributedString(linksDisabled: linksDisabled)

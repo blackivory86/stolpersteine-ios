@@ -17,9 +17,7 @@
 		48E27824180B2BD00018EE03 /* StolpersteineNetworkServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E2781D180B2BD00018EE03 /* StolpersteineNetworkServiceTests.m */; };
 		48E27825180B2BD00018EE03 /* StolpersteinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48E2781F180B2BD00018EE03 /* StolpersteinTests.m */; };
 		48E2782F180B2C600018EE03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 627E4402169B27360065C1F1 /* SystemConfiguration.framework */; };
-		6207C257188AE0DA000CA2D4 /* StolpersteinCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48633B9616C03F690057A317 /* StolpersteinCardsViewController.m */; };
 		6207C259188AE0DA000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877717417861A4400789F32 /* StolpersteinDescriptionViewController.m */; };
-		6207C25C188AE0DB000CA2D4 /* StolpersteinCardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48633B9616C03F690057A317 /* StolpersteinCardsViewController.m */; };
 		6207C25E188AE0DB000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4877717417861A4400789F32 /* StolpersteinDescriptionViewController.m */; };
 		6207C261188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF38716E9405C007250A0 /* DiagnosticsService.m */; };
 		6207C269188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF38716E9405C007250A0 /* DiagnosticsService.m */; };
@@ -54,6 +52,8 @@
 		62AB9D72188BC8BA0003AB4C /* ConfigurationServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB9D71188BC8BA0003AB4C /* ConfigurationServiceTests.m */; };
 		62AB9D74188BCA890003AB4C /* ConfigurationServiceTests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62AB9D73188BCA890003AB4C /* ConfigurationServiceTests.plist */; };
 		62AB9D76188BDED50003AB4C /* ConfigurationServiceTestsEmpty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62AB9D75188BDED50003AB4C /* ConfigurationServiceTestsEmpty.plist */; };
+		703FF1BB23565A9B00965874 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7041FDFC23550E3800AA45DD /* CardsViewController.swift */; };
+		703FF1BC23565A9D00965874 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7041FDFC23550E3800AA45DD /* CardsViewController.swift */; };
 		707EB41E2347148200F07E8E /* Stolperstein+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB41D2347148200F07E8E /* Stolperstein+Localization.swift */; };
 		707EB4222347188E00F07E8E /* Stolperstein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB4212347188E00F07E8E /* Stolperstein.swift */; };
 		707EB4232347188E00F07E8E /* Stolperstein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB4212347188E00F07E8E /* Stolperstein.swift */; };
@@ -95,8 +95,6 @@
 		46017F931D1859DBA97F4881 /* Pods.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.distribution.xcconfig; path = "Pods/Target Support Files/Pods/Pods.distribution.xcconfig"; sourceTree = "<group>"; };
 		4805809416C5BD8800C49272 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		484C8EE4169B609F001CEA59 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		48633B9516C03F690057A317 /* StolpersteinCardsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StolpersteinCardsViewController.h; sourceTree = "<group>"; };
-		48633B9616C03F690057A317 /* StolpersteinCardsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StolpersteinCardsViewController.m; sourceTree = "<group>"; };
 		486576EF180AD770000326D1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		486576F6180B29CD000326D1 /* Stolpersteine Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stolpersteine Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486576FC180B29CD000326D1 /* Stolpersteine Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Stolpersteine Tests-Info.plist"; sourceTree = "<group>"; };
@@ -147,6 +145,7 @@
 		62B6B94A17F4338D009E18AE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		62B6B94C17F4338D009E18AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		62B8D52C19EBF4C100D2182E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7041FDFC23550E3800AA45DD /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		707EB41C2347148200F07E8E /* Stolpersteine Berlin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stolpersteine Berlin-Bridging-Header.h"; sourceTree = "<group>"; };
 		707EB41D2347148200F07E8E /* Stolperstein+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stolperstein+Localization.swift"; sourceTree = "<group>"; };
 		707EB4202347188E00F07E8E /* Stolpersteine Bochum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stolpersteine Bochum-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -209,8 +208,6 @@
 			children = (
 				628D77751897B41400F605CC /* MapSearchDisplayController.h */,
 				628D77761897B41400F605CC /* MapSearchDisplayController.m */,
-				48633B9516C03F690057A317 /* StolpersteinCardsViewController.h */,
-				48633B9616C03F690057A317 /* StolpersteinCardsViewController.m */,
 				4877717317861A4400789F32 /* StolpersteinDescriptionViewController.h */,
 				4877717417861A4400789F32 /* StolpersteinDescriptionViewController.m */,
 			);
@@ -427,6 +424,7 @@
 			children = (
 				707EB436234B63EF00F07E8E /* MapViewController.swift */,
 				707EB43A234CC5BB00F07E8E /* InfoViewController.swift */,
+				7041FDFC23550E3800AA45DD /* CardsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -764,10 +762,10 @@
 				707EB42B2349FAA600F07E8E /* StolpersteineNetworkService.swift in Sources */,
 				707EB4222347188E00F07E8E /* Stolperstein.swift in Sources */,
 				707EB433234B592A00F07E8E /* StolpersteineSynchronizationController.swift in Sources */,
-				6207C257188AE0DA000CA2D4 /* StolpersteinCardsViewController.m in Sources */,
 				6207C259188AE0DA000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */,
 				707EB41E2347148200F07E8E /* Stolperstein+Localization.swift in Sources */,
 				6288BDF4188AE00C00F9B986 /* main.m in Sources */,
+				703FF1BB23565A9B00965874 /* CardsViewController.swift in Sources */,
 				707EB43E234E755100F07E8E /* StolpersteinCardCellTableViewCell.swift in Sources */,
 				707EB43B234CC5BB00F07E8E /* InfoViewController.swift in Sources */,
 				6207C261188AE0EF000CA2D4 /* DiagnosticsService.m in Sources */,
@@ -784,8 +782,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6207C25C188AE0DB000CA2D4 /* StolpersteinCardsViewController.m in Sources */,
 				6207C25E188AE0DB000CA2D4 /* StolpersteinDescriptionViewController.m in Sources */,
+				703FF1BC23565A9D00965874 /* CardsViewController.swift in Sources */,
 				707EB43F234E755100F07E8E /* StolpersteinCardCellTableViewCell.swift in Sources */,
 				6288BE24188AE02C00F9B986 /* main.m in Sources */,
 				707EB43C234CC5BB00F07E8E /* InfoViewController.swift in Sources */,

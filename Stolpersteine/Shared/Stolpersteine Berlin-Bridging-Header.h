@@ -13,5 +13,5 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHMapClusterController.h"
-#import "StolpersteinCardsViewController.h"
 #import "MapSearchDisplayController.h"
+#import "StolpersteinDescriptionViewController.h"
