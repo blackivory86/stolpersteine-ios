@@ -110,7 +110,7 @@ class CardsViewController: UITableViewController {
             let searchData = StolpersteineSearchData(keywords: nil, street: stolperstein.streetName, city: nil)
             cardsViewController.searchData = searchData
         } else if segue.identifier == Constants.Segues.ToDescription,
-            let descriptionVC = segue.destination as? StolpersteinDescriptionViewController {
+            let descriptionVC = segue.destination as? DescriptionViewController {
             descriptionVC.stolperstein = stolperstein
             descriptionVC.title = stolperstein.name
         }

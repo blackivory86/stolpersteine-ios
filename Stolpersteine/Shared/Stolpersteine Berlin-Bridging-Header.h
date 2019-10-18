@@ -14,4 +14,5 @@
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHMapClusterController.h"
 #import "MapSearchDisplayController.h"
-#import "StolpersteinDescriptionViewController.h"
+#import "TUSafariActivity.h"
+#import "CCHMapsActivity.h"

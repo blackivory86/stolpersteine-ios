@@ -31,8 +31,6 @@
 #import "GAIDictionaryBuilder.h"
 
 #import "MapSearchDisplayController.h"
-#import "StolpersteinCardsViewController.h"
-#import "StolpersteinDescriptionViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -72,8 +70,8 @@
            NSStringFromClass(MapViewController.class): @"Map",
            NSStringFromClass(MapSearchDisplayController.class): @"Map",
            NSStringFromClass(InfoViewController.class): @"Info",
-           NSStringFromClass(StolpersteinCardsViewController.class): @"StolpersteinCards",
-           NSStringFromClass(StolpersteinDescriptionViewController.class): @"StolpersteinDescription"
+           NSStringFromClass(CardsViewController.class): @"StolpersteinCards",
+           NSStringFromClass(DescriptionViewController.class): @"StolpersteinDescription"
         };
         _eventToActionNameMapping = @{
             @(DiagnosticsServiceEventOrientationChanged): @"orientationChanged",

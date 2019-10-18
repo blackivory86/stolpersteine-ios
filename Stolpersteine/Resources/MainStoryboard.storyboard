@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="XLj-i0-kjg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -169,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="831.88405797101461" y="-515.625"/>
         </scene>
-        <!--Stolperstein Description View Controller-->
+        <!--Description View Controller-->
         <scene sceneID="bQI-pg-hfM">
             <objects>
-                <viewController id="ZbI-TV-s7f" customClass="StolpersteinDescriptionViewController" sceneMemberID="viewController">
+                <viewController id="ZbI-TV-s7f" customClass="DescriptionViewController" customModule="Stolpersteine_Berlin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j1j-N9-7ew"/>
                         <viewControllerLayoutGuide type="bottom" id="90r-VU-hk1"/>
@@ -200,13 +199,13 @@
                     <navigationItem key="navigationItem" id="MW0-Yl-0Kb">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="XVh-R8-mSf">
                             <connections>
-                                <action selector="showActivities:" destination="ZbI-TV-s7f" id="Suq-xQ-rAn"/>
+                                <action selector="showActivitiesWithSender:" destination="ZbI-TV-s7f" id="mE3-gG-uUV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityBarButtonItem" destination="XVh-R8-mSf" id="Aed-gj-qaW"/>
-                        <outlet property="webView" destination="mdx-kd-zb2" id="dAg-JV-D1z"/>
+                        <outlet property="activityBarButtonItem" destination="XVh-R8-mSf" id="M9A-ux-a3g"/>
+                        <outlet property="webView" destination="mdx-kd-zb2" id="8hd-M6-Fao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INj-9S-2YH" userLabel="First Responder" sceneMemberID="firstResponder"/>

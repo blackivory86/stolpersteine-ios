@@ -135,7 +135,7 @@ class MapViewController: UIViewController {
             if let mapView = mapView,
                 let selectedClusterAnnotation = mapView.selectedAnnotations.last as? CCHMapClusterAnnotation,
                 let listViewController = segue.destination as? CardsViewController {
-                listViewController.stolpersteine = Array(selectedClusterAnnotation.annotations)
+                listViewController.stolpersteine = Array(selectedClusterAnnotation.annotations) as! [Stolperstein]
                 listViewController.title = selectedClusterAnnotation.stolpersteineCount
             }
         }
