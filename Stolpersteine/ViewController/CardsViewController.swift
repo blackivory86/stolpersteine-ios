@@ -115,8 +115,7 @@ class CardsViewController: UITableViewController {
         }
     }
     
-    @objc
-    private func dismissViewController() {
+    @objc private func dismissViewController() {
         dismiss(animated: true, completion: nil)
     }
     

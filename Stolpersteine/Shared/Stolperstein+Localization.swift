@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc
 extension Stolperstein {
     var name: String {
         #warning("needs localization")

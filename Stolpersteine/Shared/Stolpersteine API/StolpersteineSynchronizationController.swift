@@ -8,13 +8,11 @@
 
 import Foundation
 
-@objc
 protocol StolpersteineSynchronizationControllerDelegate {
     func controller(_ controller: StolpersteineSynchronizationController, didAddStolpersteine: [Stolperstein])
     func controller(_ controller: StolpersteineSynchronizationController, didRemoveStolpersteine: [Stolperstein])
 }
 
-@objc
 class StolpersteineSynchronizationController: NSObject {
     
     private enum Constants {
@@ -22,17 +20,17 @@ class StolpersteineSynchronizationController: NSObject {
     }
     
     private let networkService: StolpersteineNetworkService
-    @objc public var delegate: StolpersteineSynchronizationControllerDelegate?
+    public var delegate: StolpersteineSynchronizationControllerDelegate?
     
     private var isSynchronizing: Bool = false
     private var retrievalTask: URLSessionDataTask?
     private var stolpersteine: Set<Stolperstein> = []
     
-    @objc init(withNetworkService networkService: StolpersteineNetworkService) {
+    init(withNetworkService networkService: StolpersteineNetworkService) {
         self.networkService = networkService
     }
     
-    @objc public func synchronize() {
+    public func synchronize() {
         guard !isSynchronizing else { return }
         
         isSynchronizing = true

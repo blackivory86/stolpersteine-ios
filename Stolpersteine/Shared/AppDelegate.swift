@@ -13,13 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    @objc static var configurationService: ConfigurationService? = {
+    static var configurationService: ConfigurationService? = {
         guard let configFile = Bundle.main.path(forResource: "Stolpersteine-Config", ofType: "plist")
             else { return nil }
         return ConfigurationService(withConfigurationFile: configFile)
     }()
     
-    @objc static var networkService: StolpersteineNetworkService? = {
+    static var networkService: StolpersteineNetworkService? = {
         guard let configurationService = AppDelegate.configurationService else { return nil }
         
         let defaultSearch = StolpersteineSearchData(keywords: nil,
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return networkService
     }()
     
-    @objc static var diagnosticsService: DiagnosticsService? = {
+    static var diagnosticsService: DiagnosticsService? = {
         guard let googleAnalyticsID = AppDelegate.configurationService?.string(forKey: .GoogleAnalyticsID) else {
             print("missing Google Analytics config (ID)")
             return nil

@@ -16,16 +16,15 @@ enum ConfigurationServiceKey: String {
     case FilterCity = "Filter city"
 }
 
-@objc
 class ConfigurationService: NSObject {
     
     private let configuration: [String: Any]
     
-    @objc static var appVersion: String? {
+    static var appVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
     
-    @objc static var appShortVersion: String? {
+    static var appShortVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     

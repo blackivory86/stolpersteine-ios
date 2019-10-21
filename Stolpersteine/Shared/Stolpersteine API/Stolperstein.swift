@@ -13,7 +13,6 @@ enum StolpersteinType: Int {
     case schwelle
 }
 
-@objc
 public class Stolperstein: NSObject, MKAnnotation, NSCoding, NSCopying {
     
     let ID: String?
@@ -25,9 +24,9 @@ public class Stolperstein: NSObject, MKAnnotation, NSCoding, NSCopying {
     let personFirstName: String?
     let personLastName: String?
     public let biographyURL: URL?
-    @objc let locationStreet: String?
-    @objc let locationZIP: String?
-    @objc let locationCity: String?
+    let locationStreet: String?
+    let locationZIP: String?
+    let locationCity: String?
     public let coordinate: CLLocationCoordinate2D
     
     init(id: String?,
@@ -112,7 +111,7 @@ public class Stolperstein: NSObject, MKAnnotation, NSCoding, NSCopying {
 }
 
 extension Stolperstein {
-    @objc convenience public init?(fromDict dict: [String: Any]) {
+    convenience public init?(fromDict dict: [String: Any]) {
         let source = dict["source"] as? [String: Any]
         let person = dict["person"] as? [String: Any]
         let location = dict["person"] as? [String: Any]

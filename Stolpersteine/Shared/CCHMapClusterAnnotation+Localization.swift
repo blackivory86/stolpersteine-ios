@@ -8,7 +8,6 @@
 
 import UIKit
 
-@objc
 extension CCHMapClusterAnnotation {
     var stolpersteineTitle: String {
         if isCluster() {

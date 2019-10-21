@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc
 class StolpersteineNetworkService: NSObject {
     
     private enum Constants {
@@ -24,7 +23,7 @@ class StolpersteineNetworkService: NSObject {
 //        }
 //    }
     
-    @objc public var globalErrorHandler: ((Error?) -> ())?
+    public var globalErrorHandler: ((Error?) -> ())?
     
     let defaultSearchData: StolpersteineSearchData
     private let httpClient: AFHTTPClient
@@ -52,7 +51,7 @@ class StolpersteineNetworkService: NSObject {
 //        self.allowsInvalidSSLCertificate = allowsInvalidSSLCertificate
     }
     
-    @objc public func retrieveStolpersteine(search: StolpersteineSearchData?, inRange range: NSRange, completionHandler: (([Stolperstein]?, Error?) -> Bool)?) -> URLSessionDataTask? {
+    public func retrieveStolpersteine(search: StolpersteineSearchData?, inRange range: NSRange, completionHandler: (([Stolperstein]?, Error?) -> Bool)?) -> URLSessionDataTask? {
         
         let searchParams = createQueryParams(forSearch: search, andRange: range)
         
