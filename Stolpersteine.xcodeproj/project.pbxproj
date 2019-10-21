@@ -314,18 +314,10 @@
 				707EB439234B65EB00F07E8E /* View */,
 				707EB435234B63D200F07E8E /* ViewController */,
 				707EB41B2347146200F07E8E /* Shared */,
-				707EB41A234713BE00F07E8E /* Objective-C */,
 				626BBF0E16AEB15600DEC6EA /* Resources */,
 				6207C28C188B101A000CA2D4 /* Supporting Files */,
 			);
 			path = Stolpersteine;
-			sourceTree = "<group>";
-		};
-		627E43E3169B270B0065C1F1 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 		6288BDED188AE00C00F9B986 /* Stolpersteine Berlin */ = {
@@ -368,14 +360,6 @@
 				6288BE25188AE02C00F9B986 /* Stolpersteine Bochum-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		707EB41A234713BE00F07E8E /* Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-				627E43E3169B270B0065C1F1 /* Shared */,
-			);
-			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 		707EB41B2347146200F07E8E /* Shared */ = {
