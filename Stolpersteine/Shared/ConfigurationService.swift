@@ -41,13 +41,13 @@ class ConfigurationService: NSObject {
     }
     
     func coordinateRegion(forKey key: ConfigurationServiceKey) -> MKCoordinateRegion? {
-        guard let regionDict = configuration[key.rawValue] as? [String: String]
+        guard let regionDict = configuration[key.rawValue] as? [String: Any]
             else { return nil }
         
-        guard let lat = Double(regionDict["center.latitude"] ?? ""),
-            let long = Double(regionDict["center.longitude"] ?? ""),
-            let latDelta = Double(regionDict["span.latitudeDelta"] ?? ""),
-            let longDelta = Double(regionDict["span.longitudeDelta"] ?? "")
+        guard let lat = regionDict["center.latitude"] as? Double,
+            let long = regionDict["center.longitude"] as? Double,
+            let latDelta = regionDict["span.latitudeDelta"] as? Double,
+            let longDelta = regionDict["span.longitudeDelta"] as? Double
             else { return nil }
         
         return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: long),
