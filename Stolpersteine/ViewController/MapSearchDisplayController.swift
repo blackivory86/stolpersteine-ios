@@ -45,8 +45,7 @@ extension MapSearchDisplayController: UISearchDisplayDelegate {
     }
     
     func searchDisplayControllerDidBeginSearch(_ controller: UISearchDisplayController) {
-        #warning("re-enable analytics")
-//        AppDelegate.diagnosticsService?.trackEvent(.searchStarted, with: self.class)
+        AppDelegate.diagnosticsService?.trackEvent(.searchStarted, withClass: type(of: self))
     }
     
     @objc private func updateSearchData(_ searchString: String){

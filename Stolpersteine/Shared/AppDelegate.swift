@@ -32,7 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     @objc static var diagnosticsService: DiagnosticsService? = {
-        return DiagnosticsService(googleAnalyticsID: AppDelegate.configurationService?.string(forKey: .GoogleAnalyticsID))
+        guard let googleAnalyticsID = AppDelegate.configurationService?.string(forKey: .GoogleAnalyticsID) else {
+            print("missing Google Analytics config (ID)")
+            return nil
+        }
+        return DiagnosticsService(withGoogleAnalyticsID: googleAnalyticsID)
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {

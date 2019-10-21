@@ -54,8 +54,7 @@ class DescriptionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        #warning("update analytics")
-//        AppDelegate.diagnosticsService?.trackView(with: self.class)
+        AppDelegate.diagnosticsService?.trackView(withClass: type(of: self))
     }
     
     override func viewWillDisappear(_ animated: Bool) {

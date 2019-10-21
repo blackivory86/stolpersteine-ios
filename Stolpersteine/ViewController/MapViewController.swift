@@ -70,8 +70,7 @@ class MapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        #warning("Re-enable tracking")
-//        [AppDelegate.diagnosticsService trackViewWithClass:self.class];
+        AppDelegate.diagnosticsService?.trackView(withClass: type(of: self))
         
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { [weak self] _ in
             self?.syncController.synchronize()
@@ -124,9 +123,8 @@ class MapViewController: UIViewController {
         
         updateLocationBarButtonItem()
         
-        #warning("adapt after diagnosticsservice is converted")
-//        let diagnosticsLabel = displayRegionIcon ? "userLocation" : "region"
-//        AppDelegate.diagnosticsService?.trackEvent(DiagnosticsServiceEventMapCentered, with: self.class, label: diagnosticsLabel)
+        let diagnosticsLabel = displayRegionIcon ? "userLocation" : "region"
+        AppDelegate.diagnosticsService?.trackEvent(.mapCentered, withClass: type(of: self), label: diagnosticsLabel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

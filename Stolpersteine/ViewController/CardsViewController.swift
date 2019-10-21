@@ -64,8 +64,7 @@ class CardsViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        #warning("re-enable analytics tracking")
-//        AppDelegate.diagnosticsService?.trackView(with: self)
+        AppDelegate.diagnosticsService?.trackView(withClass: type(of: self))
     }
     
     override func viewWillDisappear(_ animated: Bool) {

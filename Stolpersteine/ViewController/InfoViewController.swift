@@ -83,8 +83,7 @@ class InfoViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        #warning("Re-enable tracking")
-        //[AppDelegate.diagnosticsService trackViewWithClass:self.class];
+        AppDelegate.diagnosticsService?.trackView(withClass: type(of: self))
     }
     
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
@@ -186,8 +185,7 @@ class InfoViewController: UITableViewController {
             diagnosticsLabel = nil
         }
         
-        #warning("Re-enable Analytics")
-//        [AppDelegate.diagnosticsService trackEvent:DiagnosticsServiceEventInfoItemTapped withClass:self.class label:diagnosticsLabel];
+        AppDelegate.diagnosticsService?.trackEvent(.infoItemTapped, withClass: type(of: self), label: diagnosticsLabel)
         
         if let urlString = urlString, let url = URL(string: urlString),
             UIApplication.shared.canOpenURL(url) {
