@@ -13,6 +13,5 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHMapClusterController.h"
-#import "MapSearchDisplayController.h"
 #import "TUSafariActivity.h"
 #import "CCHMapsActivity.h"

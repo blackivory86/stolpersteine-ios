@@ -75,7 +75,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="JzS-bv-yDb" customClass="MapSearchDisplayController">
+                <searchDisplayController id="JzS-bv-yDb" customClass="MapSearchDisplayController" customModule="Stolpersteine_Berlin" customModuleProvider="target">
                     <connections>
                         <outlet property="searchBar" destination="IQq-hk-QkF" id="ydi-bt-EW8"/>
                         <outlet property="searchContentsController" destination="2" id="aID-XX-9Ee"/>

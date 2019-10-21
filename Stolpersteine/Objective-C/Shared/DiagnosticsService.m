@@ -30,8 +30,6 @@
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
 
-#import "MapSearchDisplayController.h"
-
 #import <CoreLocation/CoreLocation.h>
 
 #define CUSTOM_DIMENSION_INTERFACE_ORIENTATION 1
