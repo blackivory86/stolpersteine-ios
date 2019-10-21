@@ -114,7 +114,7 @@ extension Stolperstein {
     convenience public init?(fromDict dict: [String: Any]) {
         let source = dict["source"] as? [String: Any]
         let person = dict["person"] as? [String: Any]
-        let location = dict["person"] as? [String: Any]
+        let location = dict["location"] as? [String: Any]
         
         let rawType = dict["type"] as? String
         let rawSourceURL = source?["url"] as? String
@@ -123,12 +123,10 @@ extension Stolperstein {
         let bioURL = URL(string: rawBioURL ?? "")
         
         guard let coordinates = location?["coordinates"] as? [String: Any],
-            let latRaw = coordinates["latitude"] as? String,
-            let longRaw = coordinates["longitude"] as? String,
-            let lat = Double(latRaw), let long = Double(longRaw) else {
+            let lat = coordinates["latitude"] as? Double,
+            let long = coordinates["longitude"] as? Double else {
                 return nil
         }
-        
         
         self.init(id: dict["id"] as? String,
                   stolpersteinType: (rawType == "stolperschwelle") ? .schwelle : .stein,

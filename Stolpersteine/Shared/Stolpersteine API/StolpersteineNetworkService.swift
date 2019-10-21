@@ -104,8 +104,8 @@ class StolpersteineNetworkService: NSObject {
     }
     
     private func createQueryParams(forSearch search: StolpersteineSearchData?, andRange range: NSRange) -> [String: Any] {
-        let params: [String: Any?] = ["limit": range.length,
-                      "offset": range.location,
+        let params: [String: Any?] = ["limit": "\(range.length)",
+                      "offset": "\(range.location)",
                       "q": search?.keywords ?? defaultSearchData.keywords,
                       "street": search?.street ?? defaultSearchData.street,
                       "city": search?.city ?? defaultSearchData.city]
