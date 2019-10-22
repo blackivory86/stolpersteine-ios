@@ -45,12 +45,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Stolpersteine \(ConfigurationService.appShortVersion ?? "") (\(ConfigurationService.appVersion ?? ""))")
         
         let networkService = AppDelegate.networkService
-        networkService?.globalErrorHandler = { error in
-            let alert = UIAlertView(title: NSLocalizedString("AppDelegate.errorTitle", comment: ""),
-                                    message: NSLocalizedString("AppDelegate.errorMessage", comment: ""),
-                                    delegate: nil,
-                                    cancelButtonTitle: NSLocalizedString("AppDelegate.errorButtonTitle", comment: ""))
-            alert.show()
+        networkService?.globalErrorHandler = { [weak self] error in
+            let alert = UIAlertController(title: NSLocalizedString("AppDelegate.errorTitle", comment: ""),
+                                          message: NSLocalizedString("AppDelegate.errorMessage", comment: ""),
+                                          preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: NSLocalizedString("AppDelegate.errorButtonTitle", comment: ""), style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            
+            self?.window?.rootViewController?.present(alert, animated: true, completion: nil)
         }
         
         #if DEBUG
