@@ -38,14 +38,6 @@
                                     <segue destination="UVD-J8-MJw" kind="modal" id="Pa4-29-SuK"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQq-hk-QkF">
-                                <rect key="frame" x="0.0" y="65" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="TbT-1Q-yMB"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -68,19 +60,11 @@
                     <connections>
                         <outlet property="infoButton" destination="zDp-xd-q2d" id="rD3-k0-GR1"/>
                         <outlet property="locationBarButtonItem" destination="9TO-yK-Bea" id="jHe-jp-Fzw"/>
-                        <outlet property="mapSearchDisplayController" destination="JzS-bv-yDb" id="TKO-M2-HBv"/>
                         <outlet property="mapView" destination="omQ-fz-cwh" id="JBd-Rf-WH9"/>
-                        <outlet property="searchDisplayController" destination="JzS-bv-yDb" id="zOm-FS-dq1"/>
                         <segue destination="S9Y-Yy-0sA" kind="push" identifier="mapViewControllerToStolpersteineCardsViewController" id="icL-Q6-suH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="JzS-bv-yDb" customClass="MapSearchDisplayController" customModule="Stolpersteine_Berlin" customModuleProvider="target">
-                    <connections>
-                        <outlet property="searchBar" destination="IQq-hk-QkF" id="ydi-bt-EW8"/>
-                        <outlet property="searchContentsController" destination="2" id="aID-XX-9Ee"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="30.434782608695656" y="-7.3660714285714279"/>
         </scene>

@@ -8,66 +8,108 @@
 
 import UIKit
 
-class MapSearchDisplayController: UISearchDisplayController {
+class MapSearchDisplayController: UISearchController {
     private struct Constants {
-        static let requestDelay = 0.3
+        static let requestDelay: TimeInterval = 0.3
+        static let requestSize = 100
+    }
+    
+    private var originalBarButtonItem: UIBarButtonItem?
+    private var delayedSearchUpdate: DispatchWorkItem?
+    
+    override init(searchResultsController: UIViewController?) {
+        super.init(searchResultsController: searchResultsController)
+        
+        hidesNavigationBarDuringPresentation = false
+//
+//        automaticallyShowsCancelButton = false
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension MapSearchDisplayController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        updateSearch(withString: searchController.searchBar.text)
+    }
+    
+    private func updateSearch(withString searchString: String?) {
+        delayedSearchUpdate?.cancel()
+        
+        let delayedSearch = DispatchWorkItem(block: { [weak self] in
+            self?.updateSearchData(searchString ?? "")
+        })
+        
+        DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + Constants.requestDelay, execute: delayedSearch)
+        
+        delayedSearchUpdate = delayedSearch
+    }
+    
+    private func updateSearchData(_ searchString: String){
+        let searchData = StolpersteineSearchData(keywords: searchString, street: nil, city: nil)
+        (searchResultsController as? MapSearchResultsViewController)?.searchData = searchData
+    }
+}
+
+extension MapSearchDisplayController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        originalBarButtonItem = navigationItem.rightBarButtonItem
+        navigationItem.setRightBarButton(nil, animated: true)
+    }
+    
+    func didPresentSearchController(_ searchController: UISearchController) {
+        AppDelegate.diagnosticsService?.trackEvent(.searchStarted, withClass: type(of: self))
+    }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        navigationItem.setRightBarButton(originalBarButtonItem, animated: true)
+    }
+}
+
+
+class MapSearchResultsViewController: UITableViewController {
+    private struct Constants {
         static let requestSize = 100
         static let searchCell = "cell"
     }
     
+    internal var zoomDistance: Double?
+
     internal var networkService: StolpersteineNetworkService?
     internal var mapClusterController: CCHMapClusterController?
-    internal var zoomDistance: Double?
-    
+    internal var searchData: StolpersteineSearchData? {
+        didSet {
+            updateSearch()
+        }
+    }
     private var searchedStolpersteine: [Stolperstein]?
     private var searchTask: URLSessionDataTask?
-    private var originalBarButtonItem: UIBarButtonItem?
-}
-
-extension MapSearchDisplayController: UISearchDisplayDelegate {
-    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        perform(#selector(updateSearchData(_:)), with: searchString, afterDelay: Constants.requestDelay)
-        
-        return false
-    }
+    internal weak var searchController: UISearchController?
     
-    func searchDisplayControllerWillBeginSearch(_ controller: UISearchDisplayController) {
-        originalBarButtonItem = navigationItem?.rightBarButtonItem
-        controller.navigationItem?.setRightBarButton(nil, animated: true)
-        controller.searchBar.setShowsCancelButton(true, animated: false)
-    }
-    
-    func searchDisplayControllerWillEndSearch(_ controller: UISearchDisplayController) {
-        searchTask?.cancel()
-        controller.navigationItem?.setRightBarButton(originalBarButtonItem, animated: true)
-        controller.searchBar.setShowsCancelButton(false, animated: true)
-    }
-    
-    func searchDisplayControllerDidBeginSearch(_ controller: UISearchDisplayController) {
-        AppDelegate.diagnosticsService?.trackEvent(.searchStarted, withClass: type(of: self))
-    }
-    
-    @objc private func updateSearchData(_ searchString: String){
+    private func updateSearch() {
         searchTask?.cancel()
         
-        let searchData = StolpersteineSearchData(keywords: searchString, street: nil, city: nil)
         searchTask = networkService?.retrieveStolpersteine(search: searchData, inRange: NSRange(location: 0, length: Constants.requestSize), completionHandler: { (stolpersteine, error) -> Bool in
+            
             self.searchedStolpersteine = stolpersteine
-            self.searchResultsTableView.reloadData()
-            self.searchResultsTableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+            self.tableView.reloadData()
+            self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
             
             return false
         })
     }
 }
 
-extension MapSearchDisplayController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+// MARK: UITableViewDataSource
+
+extension MapSearchResultsViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchedStolpersteine?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.searchCell) ?? UITableViewCell(style: .subtitle, reuseIdentifier: Constants.searchCell)
         cell.selectionStyle = .gray
         
@@ -79,12 +121,14 @@ extension MapSearchDisplayController: UITableViewDataSource {
     }
 }
 
-extension MapSearchDisplayController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+// MARK: UITableViewDelegate
+
+extension MapSearchResultsViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        // Dismiss search display controller
-        isActive = false
+        // Dismiss search display
+        searchController?.isActive = false
         
         guard let stolperstein = searchedStolpersteine?[indexPath.row] else {
             return

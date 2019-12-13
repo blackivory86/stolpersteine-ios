@@ -17,7 +17,6 @@ class MapViewController: UIViewController {
     @IBOutlet private weak var mapView: MKMapView?
     @IBOutlet private weak var infoButton: UIButton?
     @IBOutlet private weak var locationBarButtonItem: UIBarButtonItem?
-    @IBOutlet private weak var mapSearchDisplayController: MapSearchDisplayController?
     private let locationManager = CLLocationManager()
     private var displayRegionIcon: Bool = false
     private let syncController = StolpersteineSynchronizationController(withNetworkService: AppDelegate.networkService!)
@@ -35,18 +34,23 @@ class MapViewController: UIViewController {
         mapClusterController?.delegate = self
         
         // Navigation bar
-        mapSearchDisplayController?.networkService = AppDelegate.networkService
-        mapSearchDisplayController?.mapClusterController = mapClusterController
-        mapSearchDisplayController?.zoomDistance = Constants.ZoomDistanceStolperStein
-        mapSearchDisplayController?.delegate = mapSearchDisplayController
-        mapSearchDisplayController?.searchResultsDataSource = mapSearchDisplayController
-        mapSearchDisplayController?.searchResultsDelegate = mapSearchDisplayController
+        let searchResults = MapSearchResultsViewController()
+        searchResults.networkService = AppDelegate.networkService
+        searchResults.mapClusterController = mapClusterController
+        searchResults.zoomDistance = Constants.ZoomDistanceStolperStein
+        let searchController = MapSearchDisplayController(searchResultsController: searchResults)
+        searchController.searchResultsUpdater = searchController
+        searchController.searchBar.placeholder = NSLocalizedString("MapViewController.searchBarPlaceholder", comment: "")
+        searchResults.searchController = searchController
         
-        mapSearchDisplayController?.searchBar.removeFromSuperview()
-        mapSearchDisplayController?.displaysSearchBarInNavigationBar = true
-        mapSearchDisplayController?.navigationItem?.rightBarButtonItem = locationBarButtonItem
-        mapSearchDisplayController?.searchBar.placeholder = NSLocalizedString("MapViewController.searchBarPlaceholder", comment: "")
-        updateSearchBarForInterfaceOrientation(interfaceOrientation)
+//        navigationItem.titleView = searchController.searchBar
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            #warning("missing search on versions iOS 11")
+            // Fallback on earlier versions
+        }
+        navigationItem.rightBarButtonItem = locationBarButtonItem
         
         // User location
         locationManager.delegate = self
@@ -81,17 +85,6 @@ class MapViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        updateSearchBarForInterfaceOrientation(toInterfaceOrientation)
-        
-        super.willRotate(to: toInterfaceOrientation, duration: duration)
-    }
-    
-    private func updateSearchBarForInterfaceOrientation(_ orientation: UIInterfaceOrientation) {
-        let imageName = orientation.isLandscape ? "SearchBarBackgroundLandscape" : "SearchBarBackground"
-        searchDisplayController?.searchBar.setSearchFieldBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     
     private func updateLocationBarButtonItem() {
