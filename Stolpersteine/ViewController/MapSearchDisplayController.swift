@@ -39,7 +39,10 @@ extension MapSearchDisplayController: UISearchResultsUpdating {
         delayedSearchUpdate?.cancel()
         
         let delayedSearch = DispatchWorkItem(block: { [weak self] in
-            self?.updateSearchData(searchString ?? "")
+            // make sure UI is updated on main thread
+            DispatchQueue.main.async { [weak self] in
+                self?.updateSearchData(searchString ?? "")
+            }
         })
         
         DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + Constants.requestDelay, execute: delayedSearch)
@@ -92,10 +95,14 @@ class MapSearchResultsViewController: UITableViewController {
         searchTask?.cancel()
         
         searchTask = networkService?.retrieveStolpersteine(search: searchData, inRange: NSRange(location: 0, length: Constants.requestSize), completionHandler: { (stolpersteine, error) -> Bool in
-            
-            self.searchedStolpersteine = stolpersteine
-            self.tableView.reloadData()
-            self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+            // make sure UI is updated on main thread
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+
+                strongSelf.searchedStolpersteine = stolpersteine
+                strongSelf.tableView.reloadData()
+                strongSelf.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+            }
             
             return false
         })
