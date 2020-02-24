@@ -56,6 +56,8 @@
 		703FF1CB235E2E6200965874 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703FF1C3235A5AD100965874 /* DescriptionViewController.swift */; };
 		703FF1CC235E2E6800965874 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB42D234A727A00F07E8E /* AppDelegate.swift */; };
 		703FF1CD235E2E7200965874 /* Stolperstein+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB41D2347148200F07E8E /* Stolperstein+Localization.swift */; };
+		707E227524045E28007CAD1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707E227424045E28007CAD1D /* Launch Screen.storyboard */; };
+		707E227624045E28007CAD1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 707E227424045E28007CAD1D /* Launch Screen.storyboard */; };
 		707EB41E2347148200F07E8E /* Stolperstein+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB41D2347148200F07E8E /* Stolperstein+Localization.swift */; };
 		707EB4222347188E00F07E8E /* Stolperstein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB4212347188E00F07E8E /* Stolperstein.swift */; };
 		707EB4232347188E00F07E8E /* Stolperstein.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707EB4212347188E00F07E8E /* Stolperstein.swift */; };
@@ -145,6 +147,7 @@
 		703FF1C5235DB5BE00965874 /* MapSearchDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchDisplayController.swift; sourceTree = "<group>"; };
 		703FF1C8235DE92A00965874 /* DiagnosticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticsService.swift; sourceTree = "<group>"; };
 		7041FDFC23550E3800AA45DD /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		707E227424045E28007CAD1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		707EB41C2347148200F07E8E /* Stolpersteine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stolpersteine-Bridging-Header.h"; sourceTree = "<group>"; };
 		707EB41D2347148200F07E8E /* Stolperstein+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stolperstein+Localization.swift"; sourceTree = "<group>"; };
 		707EB4212347188E00F07E8E /* Stolperstein.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stolperstein.swift; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 		626BBF0E16AEB15600DEC6EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				707E227424045E28007CAD1D /* Launch Screen.storyboard */,
 				622DEDA217F432EB009C9B44 /* Images.xcassets */,
 				4879D223181C3E400022C131 /* Images */,
 				62B6B94917F4338D009E18AE /* Localizable.strings */,
@@ -553,6 +557,7 @@
 				6207C280188B0E1C000CA2D4 /* Stolpersteine-Config.plist in Resources */,
 				6207C27B188AE271000CA2D4 /* MainStoryboard.storyboard in Resources */,
 				6207C27D188AE277000CA2D4 /* Settings.bundle in Resources */,
+				707E227524045E28007CAD1D /* Launch Screen.storyboard in Resources */,
 				6288BDFA188AE00C00F9B986 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +574,7 @@
 				62684D85189837CA00770B01 /* Stolpersteine-Config.plist in Resources */,
 				6207C27C188AE272000CA2D4 /* MainStoryboard.storyboard in Resources */,
 				6207C27E188AE277000CA2D4 /* Settings.bundle in Resources */,
+				707E227624045E28007CAD1D /* Launch Screen.storyboard in Resources */,
 				6288BE2A188AE02C00F9B986 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1172,7 +1178,7 @@
 			baseConfigurationReference = C0A9C3B5FF5DB6991A3138BD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBochum;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1210,7 +1216,7 @@
 			baseConfigurationReference = 7DAC9596362F3A3DBFFC161E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBochum;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -1244,7 +1250,7 @@
 			baseConfigurationReference = 46017F931D1859DBA97F4881 /* Pods.distribution.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconBochum;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
